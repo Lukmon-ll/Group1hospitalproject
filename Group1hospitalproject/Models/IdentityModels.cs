@@ -28,7 +28,7 @@ namespace Group1hospitalproject.Models
         // add ParkingSpot entity to the system
 
         public DbSet<ParkingSpot> ParkingSpots { get; set; }
-
+        public DbSet<Department> Departments { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

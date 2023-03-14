@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202303142212585_applications.designer.cs">
       <DependentUpon>202303142212585_applications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303142340150_Patients.cs" />
+    <Compile Include="Migrations\202303142340150_Patients.designer.cs">
+      <DependentUpon>202303142340150_Patients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Department.cs" />
@@ -212,6 +216,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\ParkingSpot.cs" />
+    <Compile Include="Models\Patients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -303,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303142212585_applications.resx">
       <DependentUpon>202303142212585_applications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303142340150_Patients.resx">
+      <DependentUpon>202303142340150_Patients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

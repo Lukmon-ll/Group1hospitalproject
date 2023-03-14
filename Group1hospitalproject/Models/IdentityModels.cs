@@ -33,6 +33,9 @@ namespace Group1hospitalproject.Models
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Application> Applications { get; set; }
 
+
+        public DbSet<Patients> Patients { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

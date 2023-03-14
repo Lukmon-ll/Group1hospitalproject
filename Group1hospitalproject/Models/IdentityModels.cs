@@ -29,6 +29,10 @@ namespace Group1hospitalproject.Models
 
         public DbSet<ParkingSpot> ParkingSpots { get; set; }
         public DbSet<Department> Departments { get; set; }
+
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Application> Applications { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

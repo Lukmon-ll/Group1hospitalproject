@@ -5,6 +5,7 @@
     
     public partial class doctors : DbMigration
     {
+
         public override void Up()
         {
             CreateTable(

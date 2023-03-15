@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Group1hospitalproject.Models
 {
+
     public class Doctor
     {
         [Key]

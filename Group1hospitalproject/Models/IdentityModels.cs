@@ -36,6 +36,8 @@ namespace Group1hospitalproject.Models
 
         public DbSet<Patients> Patients { get; set; }
 
+        public DbSet<Doctor> Doctors { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

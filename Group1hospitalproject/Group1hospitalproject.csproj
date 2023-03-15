@@ -208,9 +208,18 @@
     <Compile Include="Migrations\202303142340150_Patients.designer.cs">
       <DependentUpon>202303142340150_Patients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303150155007_doctors.cs" />
+    <Compile Include="Migrations\202303150155007_doctors.designer.cs">
+      <DependentUpon>202303150155007_doctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303150203438_doctor-department.cs" />
+    <Compile Include="Migrations\202303150203438_doctor-department.designer.cs">
+      <DependentUpon>202303150203438_doctor-department.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -311,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303142340150_Patients.resx">
       <DependentUpon>202303142340150_Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303150155007_doctors.resx">
+      <DependentUpon>202303150155007_doctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303150203438_doctor-department.resx">
+      <DependentUpon>202303150203438_doctor-department.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

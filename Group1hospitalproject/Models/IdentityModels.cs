@@ -29,7 +29,7 @@ namespace Group1hospitalproject.Models
 
         public DbSet<ParkingSpot> ParkingSpots { get; set; }
 
-        public DbSet<ParkingSpot> ParkingCars { get; set; }
+        public DbSet<ParkingCar> ParkingCars { get; set; }
 
         public DbSet<Department> Departments { get; set; }
 

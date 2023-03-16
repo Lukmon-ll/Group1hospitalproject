@@ -224,7 +224,6 @@
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Job.cs" />
-    <Compile Include="Models\ParkingCar.cs" />
     <Compile Include="Models\ParkingSpot.cs" />
     <Compile Include="Models\Patients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

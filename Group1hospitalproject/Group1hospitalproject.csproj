@@ -50,6 +50,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -57,6 +58,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -100,6 +102,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -217,14 +220,45 @@
     <Compile Include="Migrations\202303150203438_doctor-department.designer.cs">
       <DependentUpon>202303150203438_doctor-department.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303160324408_ParkingCar.cs" />
+    <Compile Include="Migrations\202303160324408_ParkingCar.designer.cs">
+      <DependentUpon>202303160324408_ParkingCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303160336151_ParkingSchedule.cs" />
+    <Compile Include="Migrations\202303160336151_ParkingSchedule.designer.cs">
+      <DependentUpon>202303160336151_ParkingSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211554583_appointment.cs" />
+    <Compile Include="Migrations\202303211554583_appointment.designer.cs">
+      <DependentUpon>202303211554583_appointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211617520_appointment-patient.cs" />
+    <Compile Include="Migrations\202303211617520_appointment-patient.designer.cs">
+      <DependentUpon>202303211617520_appointment-patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211646295_remove-dept-doc.cs" />
+    <Compile Include="Migrations\202303211646295_remove-dept-doc.designer.cs">
+      <DependentUpon>202303211646295_remove-dept-doc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211651218_appointment-doctor.cs" />
+    <Compile Include="Migrations\202303211651218_appointment-doctor.designer.cs">
+      <DependentUpon>202303211651218_appointment-doctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211655395_appoint-date.cs" />
+    <Compile Include="Migrations\202303211655395_appoint-date.designer.cs">
+      <DependentUpon>202303211655395_appoint-date.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\ParkingCar.cs" />
+    <Compile Include="Models\ParkingSchedule.cs" />
     <Compile Include="Models\ParkingSpot.cs" />
     <Compile Include="Models\Patients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,6 +362,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303150203438_doctor-department.resx">
       <DependentUpon>202303150203438_doctor-department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303160324408_ParkingCar.resx">
+      <DependentUpon>202303160324408_ParkingCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303160336151_ParkingSchedule.resx">
+      <DependentUpon>202303160336151_ParkingSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211554583_appointment.resx">
+      <DependentUpon>202303211554583_appointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211617520_appointment-patient.resx">
+      <DependentUpon>202303211617520_appointment-patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211646295_remove-dept-doc.resx">
+      <DependentUpon>202303211646295_remove-dept-doc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211651218_appointment-doctor.resx">
+      <DependentUpon>202303211651218_appointment-doctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211655395_appoint-date.resx">
+      <DependentUpon>202303211655395_appoint-date.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

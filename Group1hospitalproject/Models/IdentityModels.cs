@@ -27,7 +27,11 @@ namespace Group1hospitalproject.Models
 
         // add table entities to the system
 
+        public DbSet<ParkingSchedule> ParkingSchedule { get; set; }
+
         public DbSet<ParkingSpot> ParkingSpots { get; set; }
+
+        public DbSet<ParkingCar> ParkingCars { get; set; }
 
         public DbSet<Department> Departments { get; set; }
 
@@ -37,6 +41,8 @@ namespace Group1hospitalproject.Models
         public DbSet<Patients> Patients { get; set; }
 
         public DbSet<Doctor> Doctors { get; set; }
+
+        public DbSet<Appointment> Appointments { get; set; }
 
         public static ApplicationDbContext Create()
         {

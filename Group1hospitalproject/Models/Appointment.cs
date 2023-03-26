@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Group1hospitalproject.Models
 {
-
     public class Appointment
     {
         [Key]
         public int Id { get; set; }
+
 
         [ForeignKey("Patients")]
         public int PatientID { get; set; }
@@ -26,6 +25,4 @@ namespace Group1hospitalproject.Models
 
 
     }
-
-
 }

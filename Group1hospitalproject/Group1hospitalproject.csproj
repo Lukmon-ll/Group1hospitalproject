@@ -228,29 +228,12 @@
     <Compile Include="Migrations\202303160336151_ParkingSchedule.designer.cs">
       <DependentUpon>202303160336151_ParkingSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303211554583_appointment.cs" />
-    <Compile Include="Migrations\202303211554583_appointment.designer.cs">
-      <DependentUpon>202303211554583_appointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303211617520_appointment-patient.cs" />
-    <Compile Include="Migrations\202303211617520_appointment-patient.designer.cs">
-      <DependentUpon>202303211617520_appointment-patient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303211646295_remove-dept-doc.cs" />
-    <Compile Include="Migrations\202303211646295_remove-dept-doc.designer.cs">
-      <DependentUpon>202303211646295_remove-dept-doc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303211651218_appointment-doctor.cs" />
-    <Compile Include="Migrations\202303211651218_appointment-doctor.designer.cs">
-      <DependentUpon>202303211651218_appointment-doctor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303211655395_appoint-date.cs" />
-    <Compile Include="Migrations\202303211655395_appoint-date.designer.cs">
-      <DependentUpon>202303211655395_appoint-date.cs</DependentUpon>
+    <Compile Include="Migrations\202303261533159_appointment.cs" />
+    <Compile Include="Migrations\202303261533159_appointment.designer.cs">
+      <DependentUpon>202303261533159_appointment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -260,6 +243,7 @@
     <Compile Include="Models\ParkingCar.cs" />
     <Compile Include="Models\ParkingSchedule.cs" />
     <Compile Include="Models\ParkingSpot.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Patients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -369,20 +353,8 @@
     <EmbeddedResource Include="Migrations\202303160336151_ParkingSchedule.resx">
       <DependentUpon>202303160336151_ParkingSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303211554583_appointment.resx">
-      <DependentUpon>202303211554583_appointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303211617520_appointment-patient.resx">
-      <DependentUpon>202303211617520_appointment-patient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303211646295_remove-dept-doc.resx">
-      <DependentUpon>202303211646295_remove-dept-doc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303211651218_appointment-doctor.resx">
-      <DependentUpon>202303211651218_appointment-doctor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303211655395_appoint-date.resx">
-      <DependentUpon>202303211655395_appoint-date.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202303261533159_appointment.resx">
+      <DependentUpon>202303261533159_appointment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

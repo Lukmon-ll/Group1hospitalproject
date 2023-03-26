@@ -19,4 +19,16 @@ namespace Group1hospitalproject.Models
         public int DepartmentID { get; set; }
         public virtual Department Department { get; set; }
     }
+
+
+
+    public class JobDto
+    {
+        public int JobId { get; set; }
+        public string Descriptions { get; set; }
+
+        public string Jobtype { get; set; }
+
+        public string DepartmentName { get; set; }
+    }
 }

@@ -11,6 +11,9 @@ namespace Group1hospitalproject.Models
     {
         [Key]
         public int JobId { get; set; }
+        
+        public string JobTitle { get; set; }
+
         public string Descriptions { get; set; }
 
         public string Jobtype { get; set; }

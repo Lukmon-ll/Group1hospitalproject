@@ -51,7 +51,7 @@ namespace Group1hospitalproject.Controllers
                 return NotFound();
             }
 
-            return Ok(Job);
+            return Ok(JobDto);
         }
 
         // POST: api/JobData/Update/5

@@ -1,0 +1,9 @@
+﻿{
+
+    "Descriptions": "Nurse",
+    "Jobtype": "Fulltime",
+    "DepartmentId": 1
+
+}
+
+//curl -d @job.json -H "Content-type:application/json" httplocal/api/jobdata/addjob~~Path

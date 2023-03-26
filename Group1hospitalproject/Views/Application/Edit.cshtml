@@ -1,0 +1,27 @@
+﻿@model Group1hospitalproject.Models.ApplicationDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Application</h2>
+<form action="/Job/Update/@Model.ApplicationId" method="POST">
+    <div style="display:none;">
+        <input type="text" name="JobId" value="@Model.ApplicationId" />
+    </div>
+
+    <div>
+        <label>JobId:</label> <input type="text" name="Name" value="@Model.Name" />
+        <label>Phone:</label> <input type="text" name="Phone" value="@Model.Phone" />
+        <label>Email:</label> <input type="text" name="Email" value="@Model.Email" />
+
+    </div>
+
+
+    <div>
+        <input type="submit" value="Update Job" />
+
+    </div>
+ 
+</form>
+
+

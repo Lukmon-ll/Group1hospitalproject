@@ -29,9 +29,9 @@ namespace Group1hospitalproject.Models
     {
         public int JobId { get; set; }
         public string Descriptions { get; set; }
-
+        public string JobTitle { get; set; }
         public string Jobtype { get; set; }
-
+        public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
     }
 }

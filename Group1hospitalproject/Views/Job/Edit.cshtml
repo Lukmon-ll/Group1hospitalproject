@@ -1,0 +1,29 @@
+﻿@model Group1hospitalproject.Models.JobDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Job</h2>
+<form action="/Job/Update/@Model.JobId" method="POST">
+    <div style="display:none;">
+        <input type="text" name="JobId" value="@Model.JobId" />
+    </div>
+
+    <div>
+        <label>JobTitle:</label> <input type="text" name="JobTitle" value="@Model.JobTitle" />
+        <label>Description:</label> <input type="text" name="Descriptions" value="@Model.Descriptions" />
+        <label>Jobtype:</label> <input type="text" name="Jobtype" value="@Model.Jobtype" />
+        <label>DepartmentID:</label> <input type="number" name="DepartmentID" value="@Model.DepartmentID" />
+
+
+    </div>
+
+
+    <div>
+        <input type="submit" value="Update Job" />
+
+    </div>
+ 
+</form>
+
+

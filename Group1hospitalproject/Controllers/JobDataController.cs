@@ -27,6 +27,7 @@ namespace Group1hospitalproject.Controllers
             {
                 JobId = a.JobId,
                 Jobtype = a.Jobtype,
+                JobTitle = a.JobTitle,
                 Descriptions = a.Descriptions,
                 DepartmentName = a.Department.DepartmentName
             }));
@@ -43,6 +44,7 @@ namespace Group1hospitalproject.Controllers
             {
                 JobId = Job.JobId,
                 Jobtype = Job.Jobtype,
+                JobTitle = Job.JobTitle,
                 Descriptions = Job.Descriptions,
                 DepartmentName = Job.Department.DepartmentName
             };

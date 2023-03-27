@@ -1,0 +1,9 @@
+﻿{
+  "ParkingSpotID": 2,
+  "SpotNumber": "2"
+
+}
+
+//curl -d @parkingspots.json -H "Content-type:application/json" https://localhost:44341/api/parkingspotdata/addparkingspot
+
+

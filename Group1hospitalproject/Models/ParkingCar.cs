@@ -19,4 +19,12 @@ namespace Group1hospitalproject.Models
 
 
     }
+
+    public class ParkingCarDto
+    {
+        public int ParkingCarID { get; set; }
+        public string LicencePlate { get; set; }
+
+        public string DoctorName { get; set; }
+    }
 }

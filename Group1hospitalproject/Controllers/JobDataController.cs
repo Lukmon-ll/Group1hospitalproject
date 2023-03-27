@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Group1hospitalproject.Models;
+using System.Diagnostics;
 
 namespace Group1hospitalproject.Controllers
 {

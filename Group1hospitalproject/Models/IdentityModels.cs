@@ -27,7 +27,7 @@ namespace Group1hospitalproject.Models
 
         // add table entities to the system
 
-        public DbSet<ParkingSchedule> ParkingSchedule { get; set; }
+        public DbSet<ParkingSchedule> ParkingSchedules { get; set; }
 
         public DbSet<ParkingSpot> ParkingSpots { get; set; }
 

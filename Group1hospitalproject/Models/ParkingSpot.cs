@@ -14,4 +14,10 @@ namespace Group1hospitalproject.Models
         public int SpotNumber { get; set; }
 
     }
+    public class ParkingSpotDto
+    {
+        public int ParkingSpotID { get; set; }
+        public int SpotNumber { get; set; }
+
+    }
 }

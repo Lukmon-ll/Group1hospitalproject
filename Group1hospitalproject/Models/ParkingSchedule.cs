@@ -23,6 +23,17 @@ namespace Group1hospitalproject.Models
         public DateTime DateTimeIn { get; set; }
         public DateTime DateTimeOut { get; set; }
 
+    }
 
+    public class ParkingScheduleDto
+    {
+        public int ParkingScheduleID { get; set; }
+
+        public int SpotNumber { get; set; }
+
+        public string LicencePlate { get; set; }
+
+        public DateTime DateTimeIn { get; set; }
+        public DateTime DateTimeOut { get; set; }
     }
 }

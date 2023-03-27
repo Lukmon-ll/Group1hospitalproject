@@ -1,0 +1,8 @@
+﻿{
+  "LicensePlate": "XK514R",
+  "DoctorID": 1
+}
+
+//curl -d @parkingcars.json -H "Content-type:application/json" https://localhost:44341/api/parkingcardata/addparkingcar
+
+

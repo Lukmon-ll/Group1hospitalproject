@@ -1,0 +1,14 @@
+﻿
+@model IEnumerable<Group1hospitalproject.Models.ApplicationDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Application List</h2>
+@foreach (var application in Model)
+{
+    <h2><a href="/Job/Details/@application.ApplicationId">@application.Name</a></h2>
+    <div>Department: @application.Email</div>
+    <div>JobType: @application.JobTitle</div>
+
+}

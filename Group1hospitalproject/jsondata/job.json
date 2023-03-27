@@ -1,9 +1,36 @@
-﻿{
+﻿[
+    {
+        "JobTitle": "Registered Nurse",
+        "Description": "Provide and coordinate patient care, educate patients and the public about various health conditions, and provide advice and emotional support to patients and their families.",
+        "Jobtype": "Full-time",
+        "DepartmentId": 1
+    },
 
-    "Descriptions": "Nurse",
-    "Jobtype": "Fulltime",
-    "DepartmentId": 1
+    {
+        "JobTitle": "Medical Laboratory Technician",
+        "Description": "Collect samples and perform tests to analyze body fluids, tissue, and other substances. Record and analyze test results, and communicate with physicians and other healthcare professionals about patient diagnoses and treatment options.",
+        "Jobtype": "Part-time",
+        "DepartmentId": 2
+    },
+    {
+        "JobTitle": "Physical Therapist",
+        "Description": "Help patients recover from injuries and illnesses and improve their movement and manage their pain. Develop treatment plans and exercises to improve patient's mobility, strength and range of motion.",
+        "Jobtype": "Full-time",
+        "DepartmentId": 3
+    },
 
-}
+    {
+        "JobTitle": "Hospital Administrator",
+        "Description": "Oversee the day-to-day operations of the hospital, including managing budgets, staffing, and ensuring regulatory compliance. Provide leadership and direction to the hospital staff and coordinate with other healthcare professionals to ensure patient care quality and satisfaction.",
+        "Jobtype": "Full-time",
+        "DepartmentId": 4
+    },
 
+    {
+        "JobTitle": "Pharmacist",
+        "Description": "Dispense prescription medications to patients and provide information on dosage, potential side effects, and drug interactions. Work with physicians and other healthcare professionals to develop appropriate drug therapies for patients.",
+        "Jobtype": "Part-time",
+        "DepartmentId": 5
+    }
+]
 //curl -d @job.json -H "Content-type:application/json" httplocal/api/jobdata/addjob~~Path

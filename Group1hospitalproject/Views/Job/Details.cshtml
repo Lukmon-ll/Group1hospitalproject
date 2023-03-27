@@ -1,0 +1,25 @@
+﻿@model Group1hospitalproject.Models.JobDto
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Show List</h2>
+<nav>
+    <ul>
+        <li><a href="/Job/List">Go back to list</a></li>
+        <li><a href="/Job/Edit/@Model.JobId">Update</a></li>
+        <li><a style="color:#ab2020;" href="/Burger/DeleteConfirm/@Model.JobId">Delete</a></li>
+    </ul>
+</nav>
+
+<h2>
+    @Model.JobTitle
+</h2>
+
+
+<div>Department: @Model.DepartmentName</div>
+<div>JobType: @Model.Jobtype </div>
+
+<div>Description: @Model.Descriptions</div>
+
+

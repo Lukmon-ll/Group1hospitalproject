@@ -1,0 +1,14 @@
+﻿@model Group1hospitalproject.Models.ApplicationDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this application?</h2>
+<a href="/Application/List">Cancel</a>
+<h2>@Model.Name</h2>
+
+<form action="/Application/Delete/@Model.ApplicationId" method="POST">
+    <input type="submit" value="Confirm Delete" />
+
+</form>

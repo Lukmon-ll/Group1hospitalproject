@@ -181,7 +181,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\JobDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParkingCarDataController.cs" />
@@ -263,6 +266,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="jsondata\Application.json" />
     <None Include="jsondata\job.json" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -314,6 +318,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Job\List.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Job\New.cshtml" />
+    <Content Include="Views\Job\Error.cshtml" />
+    <Content Include="Views\Application\Details.cshtml" />
+    <Content Include="Views\Application\Error.cshtml" />
+    <Content Include="Views\Application\List.cshtml" />
+    <Content Include="Views\Application\New.cshtml" />
+    <Content Include="Views\Job\DeleteConfirm.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Application\Edit.cshtml" />
+    <Content Include="Views\Application\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

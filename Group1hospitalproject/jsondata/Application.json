@@ -1,0 +1,23 @@
+﻿[
+    {
+        "JobId": 1,
+        "Name": "John Doe",
+        "Phone": "+1 555-123-4567",
+        "Email": "johndoe@example.com"
+    },
+
+    {
+        "JobId": 2,
+        "Name": "Jane Smith",
+        "Phone": "+44 20 1234 5678",
+        "Email": "janesmith@example.com"
+    },
+
+    {
+        "JobId": 3,
+        "Name": "Max Mustermann",
+        "Phone": "+49 123 4567890",
+        "Email": "maxmustermann@example.com"
+    }
+
+]

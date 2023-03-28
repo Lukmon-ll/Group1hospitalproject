@@ -21,7 +21,7 @@ below CRUD functions are built for following entities :
 - Added a new association to a record.
 - Deleted an association from a record.
 - Built a Controller, Views, and ViewModels which rendered the following pages:
-  - Listing all Entities○ 
+  - Listing all Entities
   - Showing an entity (and entities related to it)
   - Creating a new entity (and creating associations to other entities)
   - Updating an entity (and updating associations to other entities)
@@ -30,7 +30,7 @@ below CRUD functions are built for following entities :
 - CRUD for Doctor and Department has been made, views will be available soon.
 
 ### Future Development
-- Admin page
+- Separate admin page and client page
 - Pagination for parking schedule
 
 ### Contributing

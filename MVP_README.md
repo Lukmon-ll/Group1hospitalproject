@@ -10,6 +10,8 @@ To use this MVP, follow these steps:
 - Run the app
 
 ### MVP Features
+below CRUD functions are built for following entities :
+[Career, Application]
 - Listed entities in your database.
 - Found an individual entity in the database by its ID.
 - Created a new entity in the database given POST input.

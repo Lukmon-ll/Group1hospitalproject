@@ -22,4 +22,14 @@ namespace Group1hospitalproject.Models
         public int DepartmentID { get; set; }
         public virtual Department Department { get; set; }
     }
+    public class DoctorDto
+    {
+        public int DoctorID { get; set; }
+        public string DoctorName { get; set; }
+
+        public string DoctorDescription { get; set; }
+
+        public string DoctorEmail { get; set; }
+        public string DepartmentName { get; set; }
+    }
 }

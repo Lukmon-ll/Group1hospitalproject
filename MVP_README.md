@@ -19,11 +19,11 @@ To use this MVP, follow these steps:
 - Added a new association to a record.
 - Deleted an association from a record.
 - Built a Controller, Views, and ViewModels which rendered the following pages:
-- Listed all Entities.
-- Showed an entity (and entities related to it).
-- Created a new entity (and created associations to other entities).
-- Updated an entity (and updated associations to other entities).
-- Deleted an entity.
+  - Listing all Entities○ 
+  - Showing an entity (and entities related to it)
+  - Creating a new entity (and creating associations to other entities)
+  - Updating an entity (and updating associations to other entities)
+  - Deleting an entity
 
 ### Future Development
 - Admin page

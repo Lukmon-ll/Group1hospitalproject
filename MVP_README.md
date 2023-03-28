@@ -11,7 +11,7 @@ To use this MVP, follow these steps:
 
 ### MVP Features
 below CRUD functions are built for following entities :
-[Career, Application]
+[Job, Application]
 - Listed entities in your database.
 - Found an individual entity in the database by its ID.
 - Created a new entity in the database given POST input.
@@ -34,8 +34,7 @@ below CRUD functions are built for following entities :
 - Pagination for parking schedule
 
 ### Contributing
-
-Ka Wing Chan
-Andrew Barker
-Gahee Choi
-Lukmon Lasisi
+- Ka Wing Chan
+- Andrew Barker
+- Gahee Choi
+- Lukmon Lasisi

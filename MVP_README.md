@@ -9,7 +9,20 @@ To use this MVP, follow these steps:
 ### Clone the repository
 
 ### MVP Features
-- C
+- Listed entities in your database.
+- Found an individual entity in the database by its ID.
+- Created a new entity in the database given POST input.
+- Updated an entity in the database given POST input and an ID.
+- Deleted an entity in the database given an ID.
+- Listed associated records given an entity ID.
+- Added a new association to a record.
+- Deleted an association from a record.
+- Built a Controller, Views, and ViewModels which rendered the following pages:
+- Listed all Entities.
+- Showed an entity (and entities related to it).
+- Created a new entity (and created associations to other entities).
+- Updated an entity (and updated associations to other entities).
+- Deleted an entity.
 
 ### Future Development
 - Admin page

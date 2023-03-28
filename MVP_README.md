@@ -27,7 +27,7 @@ below CRUD functions are built for following entities :
   - Updating an entity (and updating associations to other entities)
   - Deleting an entity
 - Currently has CRUD for Parking schedules, will have views soon.
-- 
+- CRUD for Doctor and Department has been made, views will be available soon.
 
 ### Future Development
 - Admin page

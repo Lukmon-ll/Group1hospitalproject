@@ -5,8 +5,9 @@
 
 ### Getting Started
 To use this MVP, follow these steps:
-
-### Clone the repository
+- Clone the repository
+- Install any necessary dependencies
+- Run the app
 
 ### MVP Features
 - Listed entities in your database.

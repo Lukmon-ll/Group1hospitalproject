@@ -24,9 +24,16 @@ To use this MVP, follow these steps:
   - Creating a new entity (and creating associations to other entities)
   - Updating an entity (and updating associations to other entities)
   - Deleting an entity
+- Currently has CRUD for Parking schedules, will have views soon.
+- 
 
 ### Future Development
 - Admin page
-
+- Pagination for parking schedule
 
 ### Contributing
+
+Ka Wing Chan
+Andrew Barker
+Gahee Choi
+Lukmon Lasisi

@@ -19,4 +19,15 @@ namespace Group1hospitalproject.Models
 
 
     }
+
+    public class PatientsDto
+    {
+        public int PatientID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public int PhoneNumber { get; set; }
+
+        public string Email { get; set; }
+    }
 }

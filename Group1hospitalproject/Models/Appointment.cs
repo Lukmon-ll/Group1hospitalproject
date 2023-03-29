@@ -25,4 +25,15 @@ namespace Group1hospitalproject.Models
 
 
     }
+
+    public class AppointmentDto
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+
+        public string DoctorName { get; set; }
+        public DateTime AppointDate { get; set; }
+
+
+    }
 }

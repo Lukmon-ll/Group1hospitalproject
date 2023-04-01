@@ -1,0 +1,14 @@
+﻿@model Group1hospitalproject.Models.ViewModels.DetailsDepartment
+@{
+    ViewBag.Title = "View";
+}
+<div class="listborder">
+    <a href="/Department/List">Go back to list</a><br />
+    <a href="/Department/Edit/@Model.SelectedDepartment.DepartmentID">Update</a><br />
+    <a href="/Department/DeleteConfirm/@Model.SelectedDepartment.DepartmentID">Delete</a>
+    <div>
+        <div>@Model.SelectedDepartment.DepartmentName (ID @Model.SelectedDepartment.DepartmentID)</div>
+        <div>Department Description: @Model.SelectedDepartment.DepartmentDescription</div>
+        <div>Department News: @Model.SelectedDepartment.DepartmentNews</div>
+    </div>
+</div>

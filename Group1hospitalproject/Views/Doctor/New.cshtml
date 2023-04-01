@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Group1hospitalproject.Models.DepartmentDto>
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<form action="/Doctor/Create" method="POST">
+    <div>
+        <label>Name:</label> <input name="DoctorName" />
+    </div>
+    <div>
+        <label>Description:</label> <input type="text" name="DoctorDescription" />
+    </div>
+    <div>
+        <label>Email:</label> <input type="text" name="DoctorEmail" />
+    </div>
+    <div>
+        <label>Despartment:</label>
+        <select name="DepartmentID">
+            @foreach (var department in Model)
+            {
+                <option value="@department.DepartmentID">@department.DepartmentName</option>
+            }
+        </select>
+    </div>
+        <input type="submit" value="Add Doctor" />
+</form>
+ 

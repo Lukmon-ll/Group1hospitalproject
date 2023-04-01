@@ -1,0 +1,34 @@
+﻿@model Group1hospitalproject.Models.ViewModels.UpdateDoctor
+@{
+    ViewBag.Title = "Edit";
+}
+<a href="/Doctor/List">Go back to list</a>
+<br />
+<h2>Update Doctor</h2>
+<form action="/Doctor/Update/@Model.SelectedDoctor.DoctorID" method="POST">
+    <div style="display:none;">
+        <input type="text" name="DoctorID" value="@Model.SelectedDoctor.DoctorID" />
+    </div>
+    <div>
+        <label>Doctor name: </label><input type="text" name="DoctorName" value="@Model.SelectedDoctor.DoctorName" />
+    </div>
+    <div>
+        <label>Doctor description: </label><input type="text" name="DoctorDescription" value="@Model.SelectedDoctor.DoctorDescription" />
+    </div>
+    <div>
+        <label>Doctor Email: </label><input type="text" name="DoctorEmail" value="@Model.SelectedDoctor.DoctorEmail" />
+    </div>
+    <div>
+        <label>Department Name:</label>
+        <select name="DepartmentID">
+            @foreach (var department in Model.DepartmentOptions)
+            {
+                <option value="@department.DepartmentID">@department.DepartmentName</option>
+            }
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Update Doctor" class="btn" />
+
+    </div>
+</form>

@@ -1,0 +1,22 @@
+﻿@model Group1hospitalproject.Models.ViewModels.UpdateDepartment
+@{
+    ViewBag.Title = "Edit";
+}
+<a href="/Department/List">Go back to list</a>
+<br />
+<h2>Update Department</h2>
+<form action="/Department/Update/@Model.SelectedDepartment.DepartmentID" method="POST">
+    <div style="display:none;">
+        <input type="number" name="DepartmentID" value="@Model.SelectedDepartment.DepartmentID" />
+    </div>
+    <div>
+        <label class="editname">Department: </label><input type="text" name="DepartmentName" value="@Model.SelectedDepartment.DepartmentName" />
+    </div>
+    <div>
+        <label>Department Description: </label><input type="text" name="DepartmentDescription" value="@Model.SelectedDepartment.DepartmentDescription" />
+    </div>
+    <div>
+        <label>Department News: </label><input type="text" name="DepartmentNews" value="@Model.SelectedDepartment.DepartmentNews" />
+    </div>
+    <input type="submit" value="Update Department" class="btn" />
+</form>

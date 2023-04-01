@@ -184,7 +184,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationsDataController.cs" />
     <Compile Include="Controllers\AppointmentDataController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DepartmentDataController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\DoctorDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
@@ -259,6 +261,10 @@
     <Compile Include="Models\ParkingSpot.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Patients.cs" />
+    <Compile Include="Models\ViewModels\DetailsDepartment.cs" />
+    <Compile Include="Models\ViewModels\DetailsDoctor.cs" />
+    <Compile Include="Models\ViewModels\UpdateDepartment.cs" />
+    <Compile Include="Models\ViewModels\UpdateDoctor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -338,6 +344,16 @@
     <Content Include="Views\Job\Edit.cshtml" />
     <Content Include="Views\Application\Edit.cshtml" />
     <Content Include="Views\Application\DeleteConfirm.cshtml" />
+    <Content Include="Views\Doctor\List.cshtml" />
+    <Content Include="Views\Doctor\Details.cshtml" />
+    <Content Include="Views\Doctor\New.cshtml" />
+    <Content Include="Views\Doctor\Edit.cshtml" />
+    <Content Include="Views\Doctor\DeleteConfirm.cshtml" />
+    <Content Include="Views\Department\List.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\New.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

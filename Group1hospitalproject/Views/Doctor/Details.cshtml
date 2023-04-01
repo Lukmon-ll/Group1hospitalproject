@@ -1,0 +1,11 @@
+﻿@model Group1hospitalproject.Models.ViewModels.DetailsDoctor
+@{
+    ViewBag.Title = "Show";
+}
+<a href="/Doctor/List">Go back to the list</a>
+<a href="/Doctor/Edit/@Model.SelectedDoctor.DoctorID" class="btn">Update</a>
+<a href="/Doctor/DeleteConfirm/@Model.SelectedDoctor.DoctorID" class="btn">Delete</a>
+<h2>@Model.SelectedDoctor.DoctorName</h2>
+<div>@Model.SelectedDoctor.DoctorDescription</div>
+<div>@Model.SelectedDoctor.DoctorEmail</div>
+<div>@Model.SelectedDoctor.DepartmentName</div>

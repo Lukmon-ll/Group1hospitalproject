@@ -1,0 +1,23 @@
+﻿@model Group1hospitalproject.Models.ParkingCarDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h2>Update Car</h2>
+<form action="/ParkingCar/Update/@Model.ParkingCarID" method="POST">
+    <div style="display:none;">
+        <input type="number" name="ParkingCarID" value="@Model.ParkingCarID" />
+    </div>
+
+    <div>
+        <label>Licence Plate: </label> <input type="text" name="LicencePlate" value="@Model.LicencePlate" />
+        <label>Doctor Name: </label> <input type="text" name="DoctorName" value="@Model.DoctorName" />
+    </div>
+
+    <div>
+        <input type="submit" value="Update Parking Car" />
+    </div>
+
+</form>
+

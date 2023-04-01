@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Register Car</h2>
+<form action="/ParkingCar/Create" method="POST">
+
+    <div>
+        <label>LicencePlate: </label><input type="text" name="LicencePlate" />
+    </div>
+    <div>
+        <label>Doctor Name:</label><input type="text" name="DoctorName" />
+    </div>
+
+    <div>
+        <input type="submit" value="Add Car" />
+    </div>
+</form>

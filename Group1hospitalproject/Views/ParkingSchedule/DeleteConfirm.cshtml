@@ -1,0 +1,13 @@
+﻿@model Group1hospitalproject.Models.ParkingScheduleDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this parking booking?</h2>
+<a href="/ParkingSchedule/List">Cancel</a>
+<h2>Parking Schedule ID: @Model.ParkingScheduleID</h2>
+
+<form action="/ParkingSchedule/Delete/@Model.ParkingScheduleID" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>

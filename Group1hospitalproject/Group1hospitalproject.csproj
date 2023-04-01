@@ -193,8 +193,11 @@
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\JobDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ParkingCarController.cs" />
     <Compile Include="Controllers\ParkingCarDataController.cs" />
+    <Compile Include="Controllers\ParkingScheduleController.cs" />
     <Compile Include="Controllers\ParkingScheduleDataController.cs" />
+    <Compile Include="Controllers\ParkingSpotController.cs" />
     <Compile Include="Controllers\ParkingSpotDataController.cs" />
     <Compile Include="Controllers\PatientDataController.cs" />
     <Compile Include="Global.asax.cs">
@@ -354,6 +357,24 @@
     <Content Include="Views\Department\New.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\DeleteConfirm.cshtml" />
+    <Content Include="Views\ParkingSpot\List.cshtml" />
+    <Content Include="Views\ParkingSpot\DeleteConfirm.cshtml" />
+    <Content Include="Views\ParkingSpot\Details.cshtml" />
+    <Content Include="Views\ParkingSpot\Edit.cshtml" />
+    <Content Include="Views\ParkingSpot\Error.cshtml" />
+    <Content Include="Views\ParkingSpot\New.cshtml" />
+    <Content Include="Views\ParkingSchedule\DeleteConfirm.cshtml" />
+    <Content Include="Views\ParkingSchedule\Details.cshtml" />
+    <Content Include="Views\ParkingSchedule\Edit.cshtml" />
+    <Content Include="Views\ParkingSchedule\Error.cshtml" />
+    <Content Include="Views\ParkingSchedule\List.cshtml" />
+    <Content Include="Views\ParkingSchedule\New.cshtml" />
+    <Content Include="Views\ParkingCar\DeleteConfirm.cshtml" />
+    <Content Include="Views\ParkingCar\Details.cshtml" />
+    <Content Include="Views\ParkingCar\Edit.cshtml" />
+    <Content Include="Views\ParkingCar\Error.cshtml" />
+    <Content Include="Views\ParkingCar\List.cshtml" />
+    <Content Include="Views\ParkingCar\New.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

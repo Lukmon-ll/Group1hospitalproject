@@ -1,0 +1,20 @@
+﻿@model Group1hospitalproject.Models.ParkingSpotDto
+
+@{
+    ViewBag.Title = "View";
+}
+
+
+<nav>
+    <ul>
+        <li><a href="/ParkingSpot/List">Go back to list</a></li>
+        <li><a href="/ParkingSpot/Edit/@Model.ParkingSpotID">Update</a></li>
+        <li><a style="color:#ab2020;" href="/ParkingSpot/DeleteConfirm/@Model.ParkingSpotID">Delete</a></li>
+    </ul>
+</nav>
+
+
+
+<h2>Parking Spot Number: @Model.SpotNumber</h2>
+
+

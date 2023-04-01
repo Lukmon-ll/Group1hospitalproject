@@ -1,0 +1,28 @@
+﻿@model Group1hospitalproject.Models.ParkingScheduleDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h2>Update Car</h2>
+<form action="/ParkingSchedule/Update/@Model.ParkingScheduleID" method="POST">
+    <div style="display:none;">
+        <input type="number" name="ParkingScheduleID" value="@Model.ParkingScheduleID" />
+    </div>
+
+    <div>
+        <label>Parking Spot Number: </label> <input type="text" name="SpotNumber" value="@Model.SpotNumber" />
+        <label>Licence Plate: </label> <input type="text" name="LicencePlate" value="@Model.LicencePlate" />
+    </div>
+    <div>
+        <label>Booking Time Start: </label> <input type="datetime-local" name="DateTimeIn" value="@Model.DateTimeIn.ToString("f")" />
+    </div>
+    <div>
+        <label>Booking Time End: </label> <input type="datetime-local" name="DateTimeOut" value="@Model.DateTimeOut.ToString("f")" />
+    </div>
+    <div>
+        <input type="submit" value="Update Parking Schedule" />
+    </div>
+
+</form>
+

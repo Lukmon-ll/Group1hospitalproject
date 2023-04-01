@@ -1,0 +1,22 @@
+﻿@model Group1hospitalproject.Models.ParkingCarDto
+
+@{
+    ViewBag.Title = "View";
+}
+
+
+<nav>
+    <ul>
+        <li><a href="/ParkingCar/List">Go back to list</a></li>
+        <li><a href="/ParkingCar/Edit/@Model.ParkingCarID">Update</a></li>
+        <li><a style="color:#ab2020;" href="/ParkingCar/DeleteConfirm/@Model.ParkingCarID">Delete</a></li>
+    </ul>
+</nav>
+
+
+
+
+<h2>Licence Plate: @Model.LicencePlate</h2>
+<div>Doctor Name: @Model.DoctorName</div>
+
+

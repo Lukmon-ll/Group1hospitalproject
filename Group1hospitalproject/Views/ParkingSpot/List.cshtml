@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Group1hospitalproject.Models.ParkingSpotDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+@foreach (var parkingspot in Model)
+{
+    <h2>Parking Spot Number: <a href="/ParkingSpot/Details/@parkingspot.ParkingSpotID">@parkingspot.SpotNumber</a></h2>
+}
+

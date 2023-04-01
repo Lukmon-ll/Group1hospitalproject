@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Book Parking</h2>
+<form action="/ParkingSchedule/Create" method="POST">
+
+    <div>
+        <label>Spot Number: </label><input type="text" name="SpotNumber" />
+    </div>
+    <div>
+        <label>Licence Plate:</label><input type="text" name="LicencePlate" />
+    </div>
+    <div>
+        <label>Booking Time Start: </label> <input type="datetime-local" name="DateTimeIn" />
+    </div>
+    <div>
+        <label>Booking Time End: </label> <input type="datetime-local" name="DateTimeOut" />
+    </div>
+
+    <div>
+        <input type="submit" value="Add Parking Schedule" />
+    </div>
+</form>

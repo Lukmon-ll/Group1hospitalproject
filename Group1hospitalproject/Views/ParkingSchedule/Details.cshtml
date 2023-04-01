@@ -1,0 +1,23 @@
+﻿@model Group1hospitalproject.Models.ParkingScheduleDto
+
+@{
+    ViewBag.Title = "View";
+}
+
+
+<nav>
+    <ul>
+        <li><a href="/ParkingSchedule/List">Go back to list</a></li>
+        <li><a href="/ParkingSchedule/Edit/@Model.ParkingScheduleID">Update</a></li>
+        <li><a style="color:#ab2020;" href="/ParkingCar/DeleteConfirm/@Model.ParkingScheduleID">Delete</a></li>
+    </ul>
+</nav>
+
+
+
+
+<h2>Parking Spot Number: @Model.SpotNumber</h2>
+<div>Car Licence Plate: @Model.LicencePlate</div>
+<div>Booking Time Start @Model.DateTimeIn.ToString("f")</div>
+<div>Booking Time End @Model.DateTimeOut.ToString("f")</div>
+

@@ -4,15 +4,21 @@
 }
 
 <h2>Show List</h2>
-<a href="/Application/List">Go back to list</a>
+<nav>
+    <ul>
+        <li><a href="/Application/List">Go back to list</a></li>
+        <li><a href="/Application/Edit/@Model.ApplicationId">Update</a></li>
+        <li><a style="color:#ab2020;" href="/Application/DeleteConfirm/@Model.ApplicationId">Delete</a></li>
+    </ul>
+</nav>
 <h2>
     @Model.Name
 </h2>
 
 
-<div>Department: @Model.Phone</div>
-<div>ApplicationType: @Model.Email </div>
+<div>Phone: @Model.Phone</div>
+<div>Email: @Model.Email </div>
 
-<div>Description: @Model.JobTitle</div>
+<div>Applied for: @Model.JobTitle</div>
 
 

@@ -29,6 +29,7 @@ namespace Group1hospitalproject.Controllers
                 Name = a.Name,
                 Phone = a.Phone,
                 Email = a.Email,
+                JobId = a.Job.JobId,
                 JobTitle = a.Job.JobTitle
             }));
             return ApplicationDtos;
@@ -48,6 +49,7 @@ namespace Group1hospitalproject.Controllers
                 Name = Application.Name,
                 Phone = Application.Phone,
                 Email = Application.Email,
+                JobId = Application.JobId,
                 JobTitle = Application.Job.JobTitle
             };
             if (Application == null)

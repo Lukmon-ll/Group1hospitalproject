@@ -1,4 +1,5 @@
 ﻿using Group1hospitalproject.Models;
+using Group1hospitalproject.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +19,7 @@ namespace Group1hospitalproject.Controllers
         static JobController()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44341/api/jobdata/");
+            client.BaseAddress = new Uri("https://localhost:44341/api/");
         }
         // GET: Job/List
         public ActionResult List()
@@ -27,7 +28,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/jobdata/ListJobs
 
    
-            string url = "ListJobs";
+            string url = "jobdata/ListJobs";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -47,7 +48,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/jobdata/FindJob/{id}
 
 
-            string url = "FindJob/"+id;
+            string url = "jobdata/FindJob/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -67,7 +68,12 @@ namespace Group1hospitalproject.Controllers
         // GET: Job/New
         public ActionResult New()
         {
-            return View();
+            string url = "departmentdata/listdepartments";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<DepartmentDto> DepartmentsOptions = response.Content.ReadAsAsync<IEnumerable<DepartmentDto>>().Result;
+           
+        
+            return View(DepartmentsOptions);
         }
 
         // POST: Job/Create
@@ -75,7 +81,7 @@ namespace Group1hospitalproject.Controllers
         public ActionResult Create(Job job)
         {
             //curl -H "content-type:application/json" -d @job.json https://localhost:44341/api/jobdata/AddJob/
-            string url = "AddJob";
+            string url = "jobdata/AddJob";
 
 
 
@@ -99,19 +105,28 @@ namespace Group1hospitalproject.Controllers
         // GET: Job/Edit/5
         public ActionResult Edit(int id)
         {
-            string url = "FindJob/" + id;
+            UpdateJob ViewModel = new UpdateJob();
+
+            //the existing jab information
+            string url = "jobdata/FindJob/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
+            JobDto SeletedJob = response.Content.ReadAsAsync<JobDto>().Result;
+            ViewModel.SelectedJob = SeletedJob;
 
-            JobDto seletedjob = response.Content.ReadAsAsync<JobDto>().Result;
+            //also like to include all departments to choose from when updating this job
+            url = "departmentdata/listdepartments/"; 
+            response = client.GetAsync(url).Result;
+            IEnumerable<DepartmentDto> DepartmentOptions = response.Content.ReadAsAsync<IEnumerable<DepartmentDto>>().Result;
+            ViewModel.DepartmentOptions = DepartmentOptions;
 
-            return View(seletedjob);
+            return View(ViewModel);
         }
 
         // POST: Job/Update/5
         [HttpPost]
         public ActionResult Update(int id, Job job)
         {
-            string url = "UpdateJob/" + id;
+            string url = "jobdata/UpdateJob/" + id;
 
             string jsonpayload = jss.Serialize(job);
 
@@ -132,7 +147,7 @@ namespace Group1hospitalproject.Controllers
         // GET: Job/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "FindJob/" + id;
+            string url = "jobdata/FindJob/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             JobDto seletedjob = response.Content.ReadAsAsync<JobDto>().Result;
@@ -144,7 +159,7 @@ namespace Group1hospitalproject.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            string url = "DeleteJob/" + id;
+            string url = "jobdata/DeleteJob/" + id;
 
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";

@@ -1,4 +1,5 @@
 ﻿using Group1hospitalproject.Models;
+using Group1hospitalproject.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +19,7 @@ namespace Group1hospitalproject.Controllers
         static ApplicationController()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44341/api/applicationdata/");
+            client.BaseAddress = new Uri("https://localhost:44341/api/");
         }
         // GET: Application/List
         public ActionResult List()
@@ -27,7 +28,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/applicationdata/ListApplications
 
    
-            string url = "ListApplications";
+            string url = "applicationsdata/ListApplications";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -37,7 +38,8 @@ namespace Group1hospitalproject.Controllers
             Debug.WriteLine("Number of applications received ");
             Debug.WriteLine(applications.Count());
 
-            return View(applications);
+
+               return View(applications);
         }
 
         // GET: Application/Details/5
@@ -47,7 +49,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/applicationdata/FindApplication/{id}
 
 
-            string url = "FindApplication/"+id;
+            string url = "applicationsdata/FindApplication/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -67,15 +69,20 @@ namespace Group1hospitalproject.Controllers
         // GET: Application/New
         public ActionResult New()
         {
-            return View();
-        }
 
+            string url = "jobdata/ListJobs";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<JobDto> JobsOptions = response.Content.ReadAsAsync<IEnumerable<JobDto>>().Result;
+
+            return View(JobsOptions);
+        }
+         
         // POST: Application/Create
         [HttpPost]
         public ActionResult Create(Application application)
         {
             //curl -H "content-type:application/json" -d @application.json https://localhost:44341/api/applicationdata/AddApplication/
-            string url = "AddApplication";
+            string url = "applicationsdata/AddApplication";
 
 
 
@@ -99,19 +106,28 @@ namespace Group1hospitalproject.Controllers
         // GET: Application/Edit/5
         public ActionResult Edit(int id)
         {
-            string url = "FindApplication/" + id;
+
+            UpdateApplication ViewModel = new UpdateApplication();
+
+            string url = "applicationsdata/FindApplication/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
+            ApplicationDto SelectedApplication = response.Content.ReadAsAsync<ApplicationDto>().Result;
+            ViewModel.SelectedApplication = SelectedApplication;
 
-            ApplicationDto seletedapplication = response.Content.ReadAsAsync<ApplicationDto>().Result;
+            url = "jobdata/ListJobs/";
+            response = client.GetAsync(url).Result;
+            IEnumerable<JobDto> JobOptions = response.Content.ReadAsAsync<IEnumerable<JobDto>>().Result;
+            ViewModel.JobOptions = JobOptions;
 
-            return View(seletedapplication);
+            return View(ViewModel);
+
         }
 
         // POST: Application/Update/5
         [HttpPost]
         public ActionResult Update(int id, Application application)
         {
-            string url = "UpdateApplication/" + id;
+            string url = "applicationsdata/UpdateApplication/" + id;
 
             string jsonpayload = jss.Serialize(application);
 
@@ -132,7 +148,7 @@ namespace Group1hospitalproject.Controllers
         // GET: Application/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "FindApplication/" + id;
+            string url = "applicationsdata/FindApplication/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             ApplicationDto seletedapplication = response.Content.ReadAsAsync<ApplicationDto>().Result;
@@ -144,7 +160,7 @@ namespace Group1hospitalproject.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            string url = "DeleteApplication/" + id;
+            string url = "applicationsdata/DeleteApplication/" + id;
 
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";

@@ -5,10 +5,12 @@
 }
 
 <h2>Application List</h2>
+<a href="/Application/New" class="btn">New Application</a>
 @foreach (var application in Model)
 {
-    <h2><a href="/Job/Details/@application.ApplicationId">@application.Name</a></h2>
-    <div>Department: @application.Email</div>
-    <div>JobType: @application.JobTitle</div>
+    <h2><a href="/Application/Details/@application.ApplicationId">@application.Name</a></h2>
+    <div>Email: @application.Email</div>
+    <div>JobId: @application.JobId</div>
+    <div>JobTitle: @application.JobTitle</div>
 
 }

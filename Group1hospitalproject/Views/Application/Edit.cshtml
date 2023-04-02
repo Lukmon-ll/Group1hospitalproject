@@ -1,27 +1,35 @@
-﻿@model Group1hospitalproject.Models.ApplicationDto
+﻿@model Group1hospitalproject.Models.ViewModels.UpdateApplication
 @{
     ViewBag.Title = "Edit";
 }
 
 <h2>Update Application</h2>
-<form action="/Job/Update/@Model.ApplicationId" method="POST">
+<form action="/Application/Update/@Model.SelectedApplication.ApplicationId" method="POST">
     <div style="display:none;">
-        <input type="text" name="JobId" value="@Model.ApplicationId" />
+        <input type="text" name="ApplicationId" value="@Model.SelectedApplication.ApplicationId" />
     </div>
 
     <div>
-        <label>JobId:</label> <input type="text" name="Name" value="@Model.Name" />
-        <label>Phone:</label> <input type="text" name="Phone" value="@Model.Phone" />
-        <label>Email:</label> <input type="text" name="Email" value="@Model.Email" />
+        <label>Name:</label> <input type="text" name="Name" value="@Model.SelectedApplication.Name" />
+        <label>Phone:</label> <input type="text" name="Phone" value="@Model.SelectedApplication.Phone" />
+        <label>Email:</label> <input type="text" name="Email" value="@Model.SelectedApplication.Email" />
 
     </div>
-
+    <div>
+        <label>Job Title:</label>
+        <select name="JobId">
+            @foreach (var job in Model.JobOptions)
+            {
+                <option value="@job.JobId">@job.JobTitle</option>
+            }
+        </select>
+    </div>
 
     <div>
-        <input type="submit" value="Update Job" />
+        <input type="submit" value="Update Application" />
 
     </div>
- 
+
 </form>
 
 

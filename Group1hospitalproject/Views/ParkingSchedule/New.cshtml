@@ -1,15 +1,37 @@
-﻿@{
+﻿@model Group1hospitalproject.Models.ViewModels.CreateSchedule
+@{
     ViewBag.Title = "Create";
 }
 
 <h2>Book Parking</h2>
+<a href="/ParkingSchedule/list">Go Back To Schedules</a>
 <form action="/ParkingSchedule/Create" method="POST">
 
+    @*<div>
+        <label>Schedule Number: </label><input type="text" name="SpotNumber" />
+    </div>*@
     <div>
-        <label>Spot Number: </label><input type="text" name="SpotNumber" />
+        <label>Spot Number:</label>
+        <select name="ParkingSpotID">
+            @foreach (var spot in Model.SpotOptions)
+            {
+                <option value="@spot.ParkingSpotID">@spot.SpotNumber</option>
+
+            }
+        </select>
     </div>
-    <div>
+    @*<div>
         <label>Licence Plate:</label><input type="text" name="LicencePlate" />
+    </div>*@
+    <div>
+        <label>License Plate:</label>
+        <select name="ParkingCarID">
+            @foreach (var car in Model.CarOptions)
+            {
+                <option value="@car.ParkingCarID">@car.LicencePlate</option>
+
+            }
+        </select>
     </div>
     <div>
         <label>Booking Time Start: </label> <input type="datetime-local" name="DateTimeIn" />

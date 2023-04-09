@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using Group1hospitalproject.Models.ViewModels;
 using System.Web.Script.Serialization;
 
 namespace Group1hospitalproject.Controllers
@@ -18,7 +19,7 @@ namespace Group1hospitalproject.Controllers
         static ParkingScheduleController()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44341/api/parkingscheduledata/");
+            client.BaseAddress = new Uri("https://localhost:44341/api/");
         }
         // GET: ParkingSchedule/List
         public ActionResult List()
@@ -27,7 +28,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/parkingscheduledata/ListParkingschedules
 
 
-            string url = "ListParkingSchedules";
+            string url = "parkingscheduledata/ListParkingSchedules";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -47,7 +48,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/parkingscheduledata/FindparkingSchedule/{id}
 
 
-            string url = "FindParkingSchedule/" + id;
+            string url = "parkingscheduledata/FindParkingSchedule/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -67,7 +68,26 @@ namespace Group1hospitalproject.Controllers
         // GET: ParkingCar/New
         public ActionResult New()
         {
-            return View();
+            CreateSchedule ViewModel = new CreateSchedule();
+
+            // able to select spots for new schedule
+            string url = "parkingspotdata/listparkingspots";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<ParkingSpotDto> SpotOptions = response.Content.ReadAsAsync<IEnumerable<ParkingSpotDto>>().Result;
+
+            ViewModel.SpotOptions = SpotOptions;
+
+            //able to select cars for new schedule
+
+            url = "parkingcardata/listparkingcars";
+            response = client.GetAsync(url).Result;
+            IEnumerable<ParkingCarDto> CarOptions = response.Content.ReadAsAsync<IEnumerable<ParkingCarDto>>().Result;
+
+            ViewModel.CarOptions = CarOptions;
+
+
+            return View(ViewModel);
+        
         }
 
         // POST: ParkingCar/Create
@@ -75,8 +95,7 @@ namespace Group1hospitalproject.Controllers
         public ActionResult Create(ParkingSchedule parkingSchedule)
         {
             //curl -H "content-type:application/json" -d @parkingschedule.json https://localhost:44341/api/parkingscheduledata/AddParkingSchedule/
-            string url = "AddParkingSchedule";
-
+            string url = "parkingscheduledata/AddParkingSchedule";
 
 
             string jsonpayload = jss.Serialize(parkingSchedule);
@@ -98,20 +117,43 @@ namespace Group1hospitalproject.Controllers
 
         // GET: ParkingSchedule/Edit/5
         public ActionResult Edit(int id)
+
         {
-            string url = "FindParkingSchedule/" + id;
+
+            UpdateSchedule ViewModel = new UpdateSchedule();
+
+            string url = "parkingscheduledata/FindParkingSchedule/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             ParkingScheduleDto selectedParkingSchedule = response.Content.ReadAsAsync<ParkingScheduleDto>().Result;
 
-            return View(selectedParkingSchedule);
+            ViewModel.SelectedSchedule =  selectedParkingSchedule;
+
+            //include all spots for a schedule
+
+            url = "parkingspotdata/listparkingspots/";
+            response = client.GetAsync(url).Result;
+            IEnumerable<ParkingSpotDto> SpotOptions = response.Content.ReadAsAsync<IEnumerable<ParkingSpotDto>>().Result;
+
+            ViewModel.SpotOptions = SpotOptions;
+
+
+            // include all cars for a schedule
+
+            url = "parkingcardata/listparkingcars/";
+            response = client.GetAsync(url).Result;
+            IEnumerable<ParkingCarDto> CarOptions = response.Content.ReadAsAsync<IEnumerable<ParkingCarDto>>().Result;
+
+            ViewModel.CarOptions = CarOptions;
+
+            return View(ViewModel);
         }
 
         // POST: ParkingSchedule/Update/5
         [HttpPost]
         public ActionResult Update(int id, ParkingSchedule parkingSchedule)
         {
-            string url = "UpdateParkingSchedule/" + id;
+            string url = "parkingscheduledata/UpdateParkingSchedule/" + id;
 
             string jsonpayload = jss.Serialize(parkingSchedule);
 
@@ -132,7 +174,7 @@ namespace Group1hospitalproject.Controllers
         // GET: ParkingSchedule/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "FindParkingSchedule/" + id;
+            string url = "parkingscheduledata/FindParkingSchedule/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             ParkingScheduleDto selectedParkingSchedule = response.Content.ReadAsAsync<ParkingScheduleDto>().Result;
@@ -144,7 +186,7 @@ namespace Group1hospitalproject.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            string url = "DeleteParkingSchedule/" + id;
+            string url = "parkingscheduledata/DeleteParkingSchedule/" + id;
 
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Group1hospitalproject.Models.DoctorDto>
+@{
     ViewBag.Title = "Create";
 }
 
@@ -9,9 +10,15 @@
         <label>LicencePlate: </label><input type="text" name="LicencePlate" />
     </div>
     <div>
-        <label>Doctor Name:</label><input type="text" name="DoctorName" />
-    </div>
+        <label>Doctor Name:</label>
+        <select name="DoctorID">
+            @foreach (var doctor in Model)
+            {
+                <option value="@doctor.DoctorID">@doctor.DoctorName</option>
 
+            }
+        </select>
+    </div>
     <div>
         <input type="submit" value="Add Car" />
     </div>

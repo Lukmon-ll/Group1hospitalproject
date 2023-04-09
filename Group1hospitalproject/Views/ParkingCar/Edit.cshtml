@@ -1,20 +1,27 @@
-﻿@model Group1hospitalproject.Models.ParkingCarDto
+﻿@model Group1hospitalproject.Models.ViewModels.UpdateParkingCar
 @{
     ViewBag.Title = "Edit";
 }
 
-
 <h2>Update Car</h2>
-<form action="/ParkingCar/Update/@Model.ParkingCarID" method="POST">
+<form action="/ParkingCar/Update/@Model.SelectedCar.ParkingCarID" method="POST">
     <div style="display:none;">
-        <input type="number" name="ParkingCarID" value="@Model.ParkingCarID" />
+        <input type="number" name="ParkingCarID" value="@Model.SelectedCar.ParkingCarID" />
     </div>
 
     <div>
-        <label>Licence Plate: </label> <input type="text" name="LicencePlate" value="@Model.LicencePlate" />
-        <label>Doctor Name: </label> <input type="text" name="DoctorName" value="@Model.DoctorName" />
+        <label>Licence Plate: </label> <input type="text" name="LicencePlate" value="@Model.SelectedCar.LicencePlate" />
     </div>
+    <div>
+        <label>Doctor Name:</label>
+        <select name="DoctorID">
+            @foreach (var doctor in Model.DoctorOptions)
+            {
+                <option value="@doctor.DoctorID">@doctor.DoctorName</option>
 
+            }
+        </select>
+    </div>
     <div>
         <input type="submit" value="Update Parking Car" />
     </div>

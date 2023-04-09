@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using Group1hospitalproject.Models.ViewModels;
 using System.Web.Script.Serialization;
+
+
 
 namespace Group1hospitalproject.Controllers
 {
@@ -18,7 +21,7 @@ namespace Group1hospitalproject.Controllers
         static ParkingCarController()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44341/api/parkingspotdata/");
+            client.BaseAddress = new Uri("https://localhost:44341/api/");
         }
         // GET: ParkingCar/List
         public ActionResult List()
@@ -27,7 +30,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/parkingcardata/ListParkingcars
 
 
-            string url = "ListParkingCars";
+            string url = "parkingcardata/ListParkingCars";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -47,7 +50,7 @@ namespace Group1hospitalproject.Controllers
             //curl https://localhost:44341/api/parkingcardata/Findparkingcar/{id}
 
 
-            string url = "FindParkingCar/" + id;
+            string url = "parkingcardata/FindParkingCar/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -67,7 +70,13 @@ namespace Group1hospitalproject.Controllers
         // GET: ParkingCar/New
         public ActionResult New()
         {
-            return View();
+            //information about all doctors in the system
+            //get api/doctordata/listdoctors
+            string url = "doctordata/listdoctors";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<DoctorDto> DoctorsOptions = response.Content.ReadAsAsync<IEnumerable<DoctorDto>>().Result;
+
+            return View(DoctorsOptions);
         }
 
         // POST: ParkingCar/Create
@@ -75,7 +84,7 @@ namespace Group1hospitalproject.Controllers
         public ActionResult Create(ParkingCar parkingCar)
         {
             //curl -H "content-type:application/json" -d @parkingcar.json https://localhost:44341/api/parkingcardata/AddParkingCar/
-            string url = "AddParkingCar";
+            string url = "parkingcardata/AddParkingCar";
 
 
 
@@ -99,19 +108,28 @@ namespace Group1hospitalproject.Controllers
         // GET: ParkingCar/Edit/5
         public ActionResult Edit(int id)
         {
-            string url = "FindParkingCar/" + id;
+            UpdateParkingCar ViewModel = new UpdateParkingCar();
+            // the existing car info
+            string url = "parkingcardata/FindParkingCar/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
-
             ParkingCarDto selectedParkingCar = response.Content.ReadAsAsync<ParkingCarDto>().Result;
+            ViewModel.SelectedCar = selectedParkingCar;
 
-            return View(selectedParkingCar);
+            // also like to include all doctors for updating cars 
+
+            url = "doctordata/listdoctors/";
+            response = client.GetAsync(url).Result;
+            IEnumerable<DoctorDto> DoctorOptions = response.Content.ReadAsAsync<IEnumerable<DoctorDto>>().Result;
+            
+            ViewModel.DoctorOptions = DoctorOptions;
+            return View(ViewModel);
         }
 
         // POST: ParkingCar/Update/5
         [HttpPost]
         public ActionResult Update(int id, ParkingCar parkingCar)
         {
-            string url = "UpdateParkingCar/" + id;
+            string url = "parkingcardata/UpdateParkingCar/" + id;
 
             string jsonpayload = jss.Serialize(parkingCar);
 
@@ -132,7 +150,7 @@ namespace Group1hospitalproject.Controllers
         // GET: ParkingCar/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "FindParkingCar/" + id;
+            string url = "parkingcardata/FindParkingCar/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             ParkingCarDto selectedParkingCar = response.Content.ReadAsAsync<ParkingCarDto>().Result;
@@ -144,7 +162,7 @@ namespace Group1hospitalproject.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            string url = "DeleteParkingCar/" + id;
+            string url = "parkingcardata/DeleteParkingCar/" + id;
 
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";

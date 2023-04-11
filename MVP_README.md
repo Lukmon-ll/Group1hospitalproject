@@ -34,6 +34,8 @@ below CRUD functions are built for following entities :
 - Creating and Updating a Car allows dropdown selection for a related Doctors.
 - Creating and Updating a schedule allows dropdown selection for both a Spot and a Car.
 - Views for all functions, with necessary view models created.
+- Cars display a list of all parking bookings related to them.
+
 
 ### Future Development
 - Separate admin page and client page
@@ -41,6 +43,6 @@ below CRUD functions are built for following entities :
 
 ### Contributing
 - Ka Wing Chan - Doctors - doctors/department
-- Andrew Barker - Parking - parkingSchedule/cars/spots
+- Andrew Barker - Parking - parkingSchedule/cars/spots, car/booking relational list. Nav dropdown menu and links.
 - Gahee Choi - Career - jobs/applications
 - Lukmon Lasisi - Appointments - patient/appointment

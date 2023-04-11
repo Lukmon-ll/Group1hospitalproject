@@ -34,6 +34,30 @@ namespace Group1hospitalproject.Controllers
             }));
             return DoctorDtos;
         }
+        //gather info on all doctors related to a spot id
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <param name="id">spot id</param>
+        // GET: api/DoctorData/ListDoctors/1
+        //[HttpGet]
+        //[ResponseType(typeof(DoctorDto))]
+        //public IEnumerable<DoctorDto> ListDoctorsForSpot(int id)
+        //{
+        //    List<Doctor> Doctors = db.Doctors.Where(d=>d.ParkingSpotID==id).ToList();
+        //    List<DoctorDto> DoctorDtos = new List<DoctorDto>();
+
+        //    Doctors.ForEach(a => DoctorDtos.Add(new DoctorDto()
+        //    {
+        //        DoctorID = a.DoctorID,
+        //        DoctorName = a.DoctorName,
+        //        DoctorDescription = a.DoctorDescription,
+        //        DoctorEmail = a.DoctorEmail,
+        //        DepartmentName = a.Department.DepartmentName
+        //    }));
+        //    return DoctorDtos;
+        //}
 
         // GET: api/DoctorData/FindDoctor/5
         [ResponseType(typeof(Doctor))]

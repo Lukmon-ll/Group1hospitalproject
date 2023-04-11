@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title The Hospital Project</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -22,7 +23,35 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>
+                        <a href="#">Parking</a>
+                        <ul>
+                            <li><a href="/ParkingSchedule/List">Parking Booking</a></li>
+                            <li><a href="/ParkingCar/List">Cars</a></li>
+                            <li><a href="/ParkingSchedule/List">Parking Spots</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Department/Doctor</a>
+                        <ul>
+                            <li><a href="/doctor/List">Doctors</a></li>
+                            <li><a href="/department/List">Departments</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Jobs</a>
+                        <ul>
+                            <li><a href="/job/List">Jobs</a></li>
+                            <li><a href="/application/List">Applications</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Appointments</a>
+                        <ul>
+                            <li><a href="/appointment/List">Appointments</a></li>
+                            <li><a href="/patient/List">Patients</a></li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

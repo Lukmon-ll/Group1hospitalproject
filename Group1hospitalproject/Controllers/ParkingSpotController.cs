@@ -62,7 +62,9 @@ namespace Group1hospitalproject.Controllers
 
             // showcase doctors related to this parking spot
             // send a request to get info on doctors related to a parking spot id
+
             //url = "doctordata/listdoctorsforspot/" + id;
+            //response = client.GetAsync(url).Result;
             //IEnumerable<DoctorDto> RelatedDoctors = ;
             //ViewModel.RelatedDoctors = RelatedDoctors;
 

@@ -15,7 +15,10 @@ namespace Group1hospitalproject.Controllers
     public class ParkingSpotDataController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        /// <summary>
+        /// list parking spots
+        /// </summary>
+        /// <returns>list of parking spots</returns>
         // GET: api/ParkingSpotData/listparkingspots
         [HttpGet]
         public IEnumerable<ParkingSpotDto> ListParkingSpots()
@@ -30,7 +33,11 @@ namespace Group1hospitalproject.Controllers
             }));
             return parkingSpotDtos;
         }
-
+        /// <summary>
+        /// find parking spot by id
+        /// </summary>
+        /// <param name="id">spot id</param>
+        /// <returns>particular spot by id</returns>
         // GET: api/ParkingSpotData/findparkingspot/5
         [ResponseType(typeof(ParkingSpot))]
         [HttpGet]
@@ -49,7 +56,12 @@ namespace Group1hospitalproject.Controllers
 
             return Ok(parkingSpotDto);
         }
-
+        /// <summary>
+        /// updates parking spot by id
+        /// </summary>
+        /// <param name="id">spot id</param>
+        /// <param name="parkingSpot">spot number</param>
+        /// <returns>updated parking spot</returns>
         // Post: api/ParkingSpotData/updateparkingspot/5
         [ResponseType(typeof(void))]
         [HttpPost]
@@ -85,7 +97,11 @@ namespace Group1hospitalproject.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// add new parking spot
+        /// </summary>
+        /// <param name="parkingSpot"></param>
+        /// <returns>new parking spot</returns>
         // POST: api/ParkingSpotData/addparkingspot
         [ResponseType(typeof(ParkingSpot))]
         [HttpPost]
@@ -101,7 +117,11 @@ namespace Group1hospitalproject.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = parkingSpot.ParkingSpotID }, parkingSpot);
         }
-
+        /// <summary>
+        /// deletes spot by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>returns to spot list with selected spot deleted</returns>
         //POST DELETE: api/ParkingSpotData/deleteparkingspot/5
         [ResponseType(typeof(ParkingSpot))]
         [HttpPost]

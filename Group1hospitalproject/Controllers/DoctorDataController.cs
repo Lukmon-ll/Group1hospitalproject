@@ -64,7 +64,7 @@ namespace Group1hospitalproject.Controllers
         //[ResponseType(typeof(DoctorDto))]
         //public IEnumerable<DoctorDto> ListDoctorsForSpot(int id)
         //{
-        //    List<Doctor> Doctors = db.Doctors.Where(d=>d.ParkingSpotID==id).ToList();
+        //    List<Doctor> Doctors = db.Doctors.Where(a => a.ParkingSpotID == id).ToList();
         //    List<DoctorDto> DoctorDtos = new List<DoctorDto>();
 
         //    Doctors.ForEach(a => DoctorDtos.Add(new DoctorDto()

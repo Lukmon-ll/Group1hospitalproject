@@ -21,10 +21,14 @@ namespace Group1hospitalproject.Controllers
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44341/api/");
         }
+        /// <summary>
+        /// lists scheduled parking list
+        /// </summary>
+        /// <returns>list of parking shcedule list</returns>
         // GET: ParkingSchedule/List
         public ActionResult List()
         {
-            //objective: communicatie with the parking schedule data api to retrieve a list of parking schedules
+            //objective: communicate with the parking schedule data api to retrieve a list of parking schedules
             //curl https://localhost:44341/api/parkingscheduledata/ListParkingschedules
 
 
@@ -40,13 +44,18 @@ namespace Group1hospitalproject.Controllers
 
             return View(parkingSchedules);
         }
-
+        /// <summary>
+        /// returns a single instance of a parking sched by id
+        /// </summary>
+        /// <param name="id">schedule id</param>
+        /// <returns>returns a parking schedule by id</returns>
         // GET: ParkingSchedules/Details/5
         public ActionResult Details(int id)
         {
             //objective: communicatie with our car data api to retrieve one car 
             //curl https://localhost:44341/api/parkingscheduledata/FindparkingSchedule/{id}
 
+            DetailsSchedule ViewModel = new DetailsSchedule();
 
             string url = "parkingscheduledata/FindParkingSchedule/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
@@ -57,7 +66,6 @@ namespace Group1hospitalproject.Controllers
             ParkingScheduleDto selectedparkingschedule = response.Content.ReadAsAsync<ParkingScheduleDto>().Result;
 
 
-
             return View(selectedparkingschedule);
         }
 
@@ -65,8 +73,11 @@ namespace Group1hospitalproject.Controllers
         {
             return View();
         }
-
-        // GET: ParkingCar/New
+        /// <summary>
+        /// creates new parking schedule booking
+        /// </summary>
+        /// <returns>new parking booking</returns>
+        // GET: ParkingSchedule/New
         public ActionResult New()
         {
             CreateSchedule ViewModel = new CreateSchedule();
@@ -92,6 +103,11 @@ namespace Group1hospitalproject.Controllers
         }
 
         // POST: ParkingCar/Create
+        /// <summary>
+        /// new parking schedule
+        /// </summary>
+        /// <param name="parkingSchedule"></param>
+        /// <returns>new parking shcedule</returns>
         [HttpPost]
         public ActionResult Create(ParkingSchedule parkingSchedule)
         {
@@ -115,7 +131,11 @@ namespace Group1hospitalproject.Controllers
             }
 
         }
-
+        /// <summary>
+        /// updates parking schedule
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>updated parking schedule</returns>
         // GET: ParkingSchedule/Edit/5
         public ActionResult Edit(int id)
 
@@ -149,7 +169,12 @@ namespace Group1hospitalproject.Controllers
 
             return View(ViewModel);
         }
-
+        /// <summary>
+        /// updated parking schedule
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="parkingSchedule"></param>
+        /// <returns>updated parking schedule</returns>
         // POST: ParkingSchedule/Update/5
         [HttpPost]
         public ActionResult Update(int id, ParkingSchedule parkingSchedule)
@@ -171,7 +196,11 @@ namespace Group1hospitalproject.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        /// <summary>
+        /// confirms if user wants to delete schedule by id
+        /// </summary>
+        /// <param name="id">schedule id</param>
+        /// <returns>to schedule list, deletes schedule</returns>
         // GET: ParkingSchedule/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
@@ -182,7 +211,12 @@ namespace Group1hospitalproject.Controllers
 
             return View(selectedParkingSchedule);
         }
-
+        /// <summary>
+        /// delete schedule by id
+        /// </summary>
+        /// <param name="id">schedule id</param>
+        /// <returns>to schedule list, deletes schedule</returns>
+        // GET: ParkingSchedule/DeleteConfirm/5
         // POST: ParkingSchedule/DeleteParkingSchedule/5
         [HttpPost]
         public ActionResult Delete(int id)

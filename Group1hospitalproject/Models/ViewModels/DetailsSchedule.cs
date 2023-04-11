@@ -9,5 +9,7 @@ namespace Group1hospitalproject.Models.ViewModels
     {
         public ParkingScheduleDto SelectedSchedule { get; set; }
         public IEnumerable<DoctorDto> RelatedDoctors { get; set; }
+
+        public IEnumerable<ParkingCarDto> RelatedCars { get; set; }
     }
 }

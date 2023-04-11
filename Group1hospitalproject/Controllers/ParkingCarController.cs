@@ -42,24 +42,37 @@ namespace Group1hospitalproject.Controllers
 
             return View(parkingCars);
         }
-
+        /// <summary>
+        /// list parking schedules for a car
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: ParkingCars/Details/5
         public ActionResult Details(int id)
         {
             //objective: communicatie with our car data api to retrieve one car 
             //curl https://localhost:44341/api/parkingcardata/Findparkingcar/{id}
 
+            DetailsCar ViewModel = new DetailsCar();
 
             string url = "parkingcardata/FindParkingCar/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            Debug.WriteLine("The response code is ");
-            Debug.WriteLine(response.StatusCode);
-
             ParkingCarDto selectedparkingcar = response.Content.ReadAsAsync<ParkingCarDto>().Result;
 
+            ViewModel.selectedParkingCar = selectedparkingcar;
 
-            return View(selectedparkingcar);
+            //show schedules related to the car
+            url = "parkingscheduledata/listschedulesforcar/" + id;
+            response = client.GetAsync(url).Result;
+
+            IEnumerable<ParkingScheduleDto> RelatedSchedules = response.Content.ReadAsAsync<IEnumerable<ParkingScheduleDto>>().Result;
+
+            ViewModel.RelatedSchedules = RelatedSchedules;
+
+            return View(ViewModel);
+
+
         }
 
         public ActionResult Error()

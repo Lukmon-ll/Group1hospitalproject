@@ -1,0 +1,33 @@
+﻿@model Group1hospitalproject.Models.ViewModels.UpdatePatient
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<a href="/Patient/List">Go back to Patients</a>
+<br />
+<h2>Update Patient</h2>
+<form action="/Patient/Update/@Model.SelectedPatient.PatientID" method="POST">
+    <div style="display:none;">
+        <input type="text" name="PatientID" value="@Model.SelectedPatient.PatientID" />
+    </div>
+    <div>
+        <label>First Name: </label><input type="text" name="FirstName" value="@Model.SelectedPatient.FirstName" />
+    </div>
+    <div>
+        <label>Last Name: </label><input type="text" name="LastName" value="@Model.SelectedPatient.LastName" />
+    </div>
+    <div>
+        <label>Phone Number: </label><input type="text" name="PhoneNumber" value="@Model.SelectedPatient.PhoneNumber" />
+    </div>
+    <div>
+        <label>Email: </label><input type="text" name="Email" value="@Model.SelectedPatient.Email" />
+    </div>
+    
+    <div>
+        <input type="submit" value="Update Patient" class="btn" />
+
+    </div>
+</form>

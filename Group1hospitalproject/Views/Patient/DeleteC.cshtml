@@ -1,0 +1,24 @@
+﻿@model Group1hospitalproject.Models.PatientsDto
+
+@{
+    ViewBag.Title = "DeleteConfirmation";
+}
+
+<h2>Delete Confirmation</h2>
+
+<h2>Are you sure to delete this Patient ?</h2>
+<div class="delete">
+    <div>@Model.FirstName</div>
+    <div>@Model.LastName</div>
+    <div>@Model.PhoneNumber</div>
+    <div>@Model.Email</div>
+
+    <a href="/Patient/List" class="btn">Cancel</a>
+
+
+
+    <form action="/Patient/Delete/@Model.PatientID" method="POST">
+        <input type="submit" value="Confirm Delete" class="btn" />
+    </form>
+</div>
+

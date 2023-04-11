@@ -8,5 +8,6 @@ namespace Group1hospitalproject.Models.ViewModels
     public class DetailsDepartment
     {
         public DepartmentDto SelectedDepartment { get; set; }
+        public IEnumerable<DoctorDto> RelatedDoctors { get; set; }
     }
 }

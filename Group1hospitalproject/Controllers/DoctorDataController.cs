@@ -19,7 +19,8 @@ namespace Group1hospitalproject.Controllers
 
         // GET: api/DoctorData/ListDoctors
         [HttpGet]
-        public IEnumerable<DoctorDto> ListDoctors()
+        [ResponseType(typeof(DoctorDto))]
+        public IHttpActionResult ListDoctors()
         {
             List<Doctor> Doctors =  db.Doctors.ToList();
             List<DoctorDto> DoctorDtos = new List<DoctorDto>();
@@ -32,7 +33,25 @@ namespace Group1hospitalproject.Controllers
                 DoctorEmail = a.DoctorEmail,
                 DepartmentName = a.Department.DepartmentName
             }));
-            return DoctorDtos;
+            return Ok(DoctorDtos);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(DoctorDto))]
+        public IHttpActionResult ListDoctorsForDepartment(int id)
+        {
+            List<Doctor> Doctors = db.Doctors.Where(a => a.DepartmentID == id).ToList();
+            List<DoctorDto> DoctorDtos = new List<DoctorDto>();
+
+            Doctors.ForEach(a => DoctorDtos.Add(new DoctorDto()
+            {
+                DoctorID = a.DoctorID,
+                DoctorName = a.DoctorName,
+                DoctorDescription = a.DoctorDescription,
+                DoctorEmail = a.DoctorEmail,
+                DepartmentName = a.Department.DepartmentName
+            }));
+            return Ok(DoctorDtos);
         }
 
         // GET: api/DoctorData/FindDoctor/5

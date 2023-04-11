@@ -11,4 +11,11 @@
         <div>Department Description: @Model.SelectedDepartment.DepartmentDescription</div>
         <div>Department News: @Model.SelectedDepartment.DepartmentNews</div>
     </div>
+    <div>
+        <h2>Doctors related to this department:</h2>
+        @foreach (var doctor in Model.RelatedDoctors) { 
+        <a href="/Doctor/Details/@doctor.DoctorID">Doctor ID: @doctor.DoctorID</a>
+        <a href="/Doctor/Details/@doctor.DoctorID">Doctor Name: @doctor.DoctorName</a>
+        }
+    </div>
 </div>

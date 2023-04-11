@@ -42,6 +42,11 @@ namespace Group1hospitalproject.Controllers
 
             ViewModel.SelectedDepartment = SelectedDepartment;
 
+            url = "doctordata/listdoctorsfordepartment/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<DoctorDto> RelatedDoctors = response.Content.ReadAsAsync<IEnumerable<DoctorDto>>().Result;
+            ViewModel.RelatedDoctors = RelatedDoctors;
+
             return View(ViewModel);
         }
 

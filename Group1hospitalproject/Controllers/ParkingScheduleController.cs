@@ -57,6 +57,7 @@ namespace Group1hospitalproject.Controllers
             ParkingScheduleDto selectedparkingschedule = response.Content.ReadAsAsync<ParkingScheduleDto>().Result;
 
 
+
             return View(selectedparkingschedule);
         }
 

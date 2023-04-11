@@ -2,10 +2,10 @@
 @{
     ViewBag.Title = "List";
 }
-
-<h2>Car List</h2>
+<a href="/ParkingCar/New">Add a Car</a>
+<h2>Cars</h2>
 @foreach (var parkingcar in Model)
 {
-    <h2>Licence Plate: <a href="/ParkingSpot/Details/@parkingcar.ParkingCarID">@parkingcar.LicencePlate</a></h2>
+    <h2>Licence Plate: <a href="/ParkingCar/Details/@parkingcar.ParkingCarID">@parkingcar.LicencePlate</a></h2>
 }
 

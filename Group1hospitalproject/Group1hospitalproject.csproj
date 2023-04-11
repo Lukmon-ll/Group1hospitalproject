@@ -267,6 +267,8 @@
     <Compile Include="Models\ViewModels\CreateSchedule.cs" />
     <Compile Include="Models\ViewModels\DetailsDepartment.cs" />
     <Compile Include="Models\ViewModels\DetailsDoctor.cs" />
+    <Compile Include="Models\ViewModels\DetailsSchedule.cs" />
+    <Compile Include="Models\ViewModels\DetailsSpot.cs" />
     <Compile Include="Models\ViewModels\UpdateCar.cs" />
     <Compile Include="Models\ViewModels\UpdateDepartment.cs" />
     <Compile Include="Models\ViewModels\UpdateDoctor.cs" />

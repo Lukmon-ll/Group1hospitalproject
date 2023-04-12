@@ -9,13 +9,17 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Group1hospitalproject.Models;
+using Group1hospitalproject.Models.ViewModels;
 
 namespace Group1hospitalproject.Controllers
 {
     public class ParkingScheduleDataController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        /// <summary>
+        /// list parking schedules
+        /// </summary>
+        /// <returns>list of parking schedules</returns>
         // GET: api/ParkingScheduleData/listparkingschedules
         [HttpGet]
         public IEnumerable<ParkingScheduleDto> ListParkingSchedules()
@@ -35,6 +39,37 @@ namespace Group1hospitalproject.Controllers
             return parkingScheduleDtos;
         }
 
+        /// <summary>
+        /// list parking schedules for particular car
+        /// </summary>
+        /// <param name="id">id is for car</param>
+        /// <returns>list of parking schedules for car</returns>
+        // GET: api/ParkingScheduleData/listparkingschedules/id
+        [HttpGet]
+        public IEnumerable<ParkingScheduleDto> ListSchedulesForCar(int id)
+        {
+            List<ParkingSchedule> parkingSchedules = db.ParkingSchedules.Where(s=>s.ParkingCarID==id).ToList();
+            List<ParkingScheduleDto> parkingScheduleDtos = new List<ParkingScheduleDto>();
+
+            parkingSchedules.ForEach(s => parkingScheduleDtos.Add(new ParkingScheduleDto()
+            {
+                ParkingScheduleID = s.ParkingScheduleID,
+                SpotNumber = s.ParkingSpot.SpotNumber,
+                LicencePlate = s.ParkingCar.LicencePlate,
+                DateTimeIn = s.DateTimeIn,
+                DateTimeOut = s.DateTimeOut
+
+            }));
+            return parkingScheduleDtos;
+        }
+
+
+
+        /// <summary>
+        /// particular schedule by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/ParkingScheduleData/findparkingschedule/5
         [ResponseType(typeof(ParkingSchedule))]
         [HttpGet]
@@ -58,6 +93,12 @@ namespace Group1hospitalproject.Controllers
             return Ok(parkingScheduleDto);
         }
 
+        /// <summary>
+        /// update/edit a schedule
+        /// </summary>
+        /// <param name="id">scheduleid</param>
+        /// <param name="parkingSchedule"></param>
+        /// <returns>updated schedule</returns>
         // POST: api/ParkingScheduleData/updateparkingschedule/5
         [ResponseType(typeof(void))]
         [HttpPost]
@@ -93,7 +134,11 @@ namespace Group1hospitalproject.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// adds new schedule
+        /// </summary>
+        /// <param name="parkingSchedule"></param>
+        /// <returns>list of schedules/bookings with new one added</returns>
         // POST: api/ParkingScheduleData/addparkingschedule
         [ResponseType(typeof(ParkingSchedule))]
         [HttpPost]
@@ -109,7 +154,11 @@ namespace Group1hospitalproject.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = parkingSchedule.ParkingScheduleID }, parkingSchedule);
         }
-
+        /// <summary>
+        /// deletes schedule
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>list with deleted schedule gone</returns>
         // DELETE: api/ParkingScheduleData/deleteparkingschedule/5
         [ResponseType(typeof(ParkingSchedule))]
         [HttpPost]

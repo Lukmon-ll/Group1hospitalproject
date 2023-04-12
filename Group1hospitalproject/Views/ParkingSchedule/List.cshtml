@@ -2,9 +2,9 @@
 @{
     ViewBag.Title = "List";
 }
-
-<h2>List</h2>
+<a href="/ParkingSchedule/New">Book A Parking Spot</a>
+<h2>Parking Bookings</h2>
 @foreach (var parkingschedule in Model)
 {
-    <h2>Parking Spot Booking ID: <a href="/ParkingSchedule/Details/@parkingschedule.ParkingScheduleID">@parkingschedule.ParkingScheduleID</a></h2>
+    <h2>Booking Info (Click For Details): <a href="/ParkingSchedule/Details/@parkingschedule.ParkingScheduleID">@parkingschedule.ParkingScheduleID</a></h2>
 }

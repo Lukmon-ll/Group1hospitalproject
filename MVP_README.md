@@ -26,15 +26,23 @@ below CRUD functions are built for following entities :
   - Creating a new entity (and creating associations to other entities)
   - Updating an entity (and updating associations to other entities)
   - Deleting an entity
-- Currently has CRUD for Parking schedules, will have views soon.
+
 - CRUD for Doctor and Department has been made, views will be available soon.
+
+[ParkingSchedule/Cars/Spots]
+- CRUD for all three tables including relational display and data.
+- Creating and Updating a Car allows dropdown selection for a related Doctors.
+- Creating and Updating a schedule allows dropdown selection for both a Spot and a Car.
+- Views for all functions, with necessary view models created.
+- Cars display a list of all parking bookings related to them.
+
 
 ### Future Development
 - Separate admin page and client page
 - Pagination for parking schedule
 
 ### Contributing
-- Ka Wing Chan
-- Andrew Barker
-- Gahee Choi
-- Lukmon Lasisi
+- Ka Wing Chan - Doctors - doctors/department
+- Andrew Barker - Parking - parkingSchedule/cars/spots, car/booking relational list. Nav dropdown menu and links.
+- Gahee Choi - Career - jobs/applications
+- Lukmon Lasisi - Appointments - patient/appointment

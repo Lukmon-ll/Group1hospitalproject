@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Group1hospitalproject.Models.ViewModels
 {
-    public class DetailsDepartment
+    public class DetailsSpot
     {
-        public DepartmentDto SelectedDepartment { get; set; }
+        public ParkingSpotDto selectedParkingSpot { get; set; }
         public IEnumerable<DoctorDto> RelatedDoctors { get; set; }
     }
 }

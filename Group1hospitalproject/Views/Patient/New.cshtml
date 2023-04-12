@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Group1hospitalproject.Models.PatientsDto>
+@{
+    ViewBag.Title = "New Patient";
+}
+
+
+<h2>Add New Patient</h2>
+<form action="/Patient/Create" method="POST">
+    <div>
+        <label>First Name:</label> <input name="FirstName" />
+    </div>
+    <div>
+        <label>Last Name:</label> <input name="LastName" />
+    </div>
+    <div>
+        <label>Phone Number:</label> <input type="number" name="PhoneNumber" />
+    </div>
+    <div>
+        <label>Email:</label> <input type="text" name="Email" />
+    </div>
+
+    <input type="submit" value="Add Patient" />
+</form>
+

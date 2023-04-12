@@ -1,24 +1,43 @@
-﻿@model Group1hospitalproject.Models.ParkingScheduleDto
+﻿@model Group1hospitalproject.Models.ViewModels.UpdateSchedule
 @{
     ViewBag.Title = "Edit";
 }
 
 
 <h2>Update Car</h2>
-<form action="/ParkingSchedule/Update/@Model.ParkingScheduleID" method="POST">
+<form action="/ParkingSchedule/Update/@Model.SelectedSchedule.ParkingScheduleID" method="POST">
     <div style="display:none;">
-        <input type="number" name="ParkingScheduleID" value="@Model.ParkingScheduleID" />
+        <input type="number" name="ParkingScheduleID" value="@Model.SelectedSchedule." />
     </div>
 
     <div>
-        <label>Parking Spot Number: </label> <input type="text" name="SpotNumber" value="@Model.SpotNumber" />
-        <label>Licence Plate: </label> <input type="text" name="LicencePlate" value="@Model.LicencePlate" />
+        <label>Spot Number:</label>
+        <select name="ParkingSpotID">
+            @foreach (var spot in Model.SpotOptions)
+            {
+                <option value="@spot.ParkingSpotID">@spot.SpotNumber</option>
+
+            }
+        </select>
+    </div>
+    @*<div>
+            <label>Licence Plate:</label><input type="text" name="LicencePlate" />
+        </div>*@
+    <div>
+        <label>License Plate:</label>
+        <select name="ParkingCarID">
+            @foreach (var car in Model.CarOptions)
+            {
+                <option value="@car.ParkingCarID">@car.LicencePlate</option>
+
+            }
+        </select>
     </div>
     <div>
-        <label>Booking Time Start: </label> <input type="datetime-local" name="DateTimeIn" value="@Model.DateTimeIn.ToString("f")" />
+        <label>Booking Time Start: </label> <input type="datetime-local" name="DateTimeIn" value="@Model.SelectedSchedule.DateTimeIn.ToString("f")" />
     </div>
     <div>
-        <label>Booking Time End: </label> <input type="datetime-local" name="DateTimeOut" value="@Model.DateTimeOut.ToString("f")" />
+        <label>Booking Time End: </label> <input type="datetime-local" name="DateTimeOut" value="@Model.SelectedSchedule.DateTimeOut.ToString("f")" />
     </div>
     <div>
         <input type="submit" value="Update Parking Schedule" />

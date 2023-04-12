@@ -5,11 +5,11 @@ using System.Web;
 
 namespace Group1hospitalproject.Models.ViewModels
 {
-    public class DetailsDoctor
+    public class DetailsSchedule
     {
-        public DoctorDto SelectedDoctor { get; set; }
+        public ParkingScheduleDto SelectedSchedule { get; set; }
+        public IEnumerable<DoctorDto> RelatedDoctors { get; set; }
 
         public IEnumerable<ParkingCarDto> RelatedCars { get; set; }
-        public IEnumerable<ParkingCarDto> RelatedSpots { get; set; }
     }
 }

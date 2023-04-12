@@ -1,4 +1,4 @@
-﻿@model Group1hospitalproject.Models.ParkingCarDto
+﻿@model Group1hospitalproject.Models.ViewModels.DetailsCar
 
 @{
     ViewBag.Title = "View";
@@ -8,15 +8,20 @@
 <nav>
     <ul>
         <li><a href="/ParkingCar/List">Go back to list</a></li>
-        <li><a href="/ParkingCar/Edit/@Model.ParkingCarID">Update</a></li>
-        <li><a style="color:#ab2020;" href="/ParkingCar/DeleteConfirm/@Model.ParkingCarID">Delete</a></li>
+        <li><a href="/ParkingCar/Edit/@Model.selectedParkingCar.ParkingCarID">Update</a></li>
+        <li><a style="color:#ab2020;" href="/ParkingCar/DeleteConfirm/@Model.selectedParkingCar.ParkingCarID">Delete</a></li>
     </ul>
 </nav>
 
+<h2>Licence Plate: @Model.selectedParkingCar.LicencePlate</h2>
+<div>Doctor Name: @Model.selectedParkingCar.DoctorName</div>
 
-
-
-<h2>Licence Plate: @Model.LicencePlate</h2>
-<div>Doctor Name: @Model.DoctorName</div>
+<div>
+    <h3>Bookings related to this car</h3>
+    @foreach(var booking in Model.RelatedSchedules)
+            {
+                <a href="@booking.ParkingScheduleID">@booking.DateTimeIn</a>
+            }
+</div>
 
 

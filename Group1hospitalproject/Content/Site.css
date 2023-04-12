@@ -26,5 +26,36 @@ textarea {
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
     background-color: #777;
-    border-color: #fff
+    border-color: #fff;
+}
+
+nav {
+    background: none;
+
+}
+ul {
+    list-style: none;
+}
+li {
+    float: none;
+}
+li a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+}
+
+li ul {
+    display: none;
+    position: absolute;
+    background: #e0e0e0;
+    width: 212px;
+}
+li:hover ul {
+    display:block;
+    width: 180px;
+}
+
+li ul li{
+    float: none;
 }

@@ -16,6 +16,12 @@ namespace Group1hospitalproject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// returns list of cars in system
+        /// </summary>
+        /// <returns>
+        /// all cars in the system
+        /// </returns>
         // GET: api/ParkingCarData/listparkingcars
         [HttpGet]
         public IEnumerable<ParkingCarDto> ListParkingCars()
@@ -34,6 +40,39 @@ namespace Group1hospitalproject.Controllers
 
         }
 
+        /// <summary>
+        /// returns list of cars in system for schedule id
+        /// </summary>
+        /// <returns>
+        /// all cars related to a schedule
+        /// <paramref name="id"/> id is for schedule
+        /// </returns>
+        // GET: api/ParkingCarData/listparkingcars/3
+        //[HttpGet]
+        //public IEnumerable<ParkingCarDto> Listcarsforschedule(int id)
+        //{
+        //    List<ParkingCar> parkingCars = db.ParkingCars.Where(p=>p.).ToList();
+        //    List<ParkingCarDto> parkingCarDtos = new List<ParkingCarDto>();
+
+        //    parkingCars.ForEach(p => parkingCarDtos.Add(new ParkingCarDto()
+        //    {
+        //        ParkingCarID = p.ParkingCarID,
+        //        LicencePlate = p.LicencePlate,
+        //        DoctorName = p.Doctor.DoctorName
+
+        //    }));
+        //    return parkingCarDtos;
+
+        //}
+
+
+
+
+        /// <summary>
+        /// returns a single car
+        /// </summary>
+        /// <param name="id">car id</param>
+        /// <returns>single instance of car in system</returns>
         // GET: api/ParkingCarData/findparkingcar/5
         [ResponseType(typeof(ParkingCar))]
         [HttpGet]
@@ -54,7 +93,12 @@ namespace Group1hospitalproject.Controllers
 
             return Ok(parkingCarDto);
         }
-
+        /// <summary>
+        /// updates a car in the system
+        /// </summary>
+        /// <param name="id">car id</param>
+        /// <param name="parkingCar"></param>
+        /// <returns>updated car</returns>
         // POST: api/ParkingCarData/updateparkingcar/5
         [ResponseType(typeof(void))]
         [HttpPost]
@@ -90,7 +134,11 @@ namespace Group1hospitalproject.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// add a car to the system
+        /// </summary>
+        /// <param name="parkingCar">car</param>
+        /// <returns>new car to system</returns>
         // POST: api/ParkingCarData/addParkingcar
         [ResponseType(typeof(ParkingCar))]
         [HttpPost]
@@ -106,7 +154,11 @@ namespace Group1hospitalproject.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = parkingCar.ParkingCarID }, parkingCar);
         }
-
+        /// <summary>
+        /// removes car from system
+        /// </summary>
+        /// <param name="id">car id</param>
+        /// <returns>deletes car, returns back to car list</returns>
         // POST DELETE: api/ParkingCarData/deleteparkingcar/5
         [ResponseType(typeof(ParkingCar))]
         [HttpPost]

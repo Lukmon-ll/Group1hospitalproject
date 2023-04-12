@@ -46,7 +46,7 @@ namespace Group1hospitalproject.Controllers
         {
             //objective: communicatie with our job data api to retrieve one job detail
             //curl https://localhost:44341/api/jobdata/FindJob/{id}
-
+            DetailsJobs viewModel = new DetailsJobs();
 
             string url = "jobdata/FindJob/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
@@ -54,10 +54,14 @@ namespace Group1hospitalproject.Controllers
             Debug.WriteLine("The response code is ");
             Debug.WriteLine(response.StatusCode);
 
-            JobDto seletedjob = response.Content.ReadAsAsync<JobDto>().Result;
+            JobDto Seletedjob = response.Content.ReadAsAsync<JobDto>().Result;
+            viewModel.SelectedJob = Seletedjob;
 
-
-            return View(seletedjob);
+            url = "ApplicationsData/ListApplicationforJobs/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<ApplicationDto> RelatedApplications = response.Content.ReadAsAsync<IEnumerable<ApplicationDto>>().Result;
+            viewModel.RelatedApplications = RelatedApplications;
+            return View(viewModel);
         }
 
         public ActionResult Error()

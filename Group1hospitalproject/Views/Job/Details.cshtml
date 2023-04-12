@@ -1,4 +1,4 @@
-﻿@model Group1hospitalproject.Models.JobDto
+﻿@model Group1hospitalproject.Models.ViewModels.DetailsJobs
 @{
     ViewBag.Title = "Details";
 }
@@ -7,19 +7,26 @@
 <nav>
     <ul>
         <li><a href="/Job/List">Go back to list</a></li>
-        <li><a href="/Job/Edit/@Model.JobId">Update</a></li>
-        <li><a style="color:#ab2020;" href="/Job/DeleteConfirm/@Model.JobId">Delete</a></li>
+        <li><a href="/Job/Edit/@Model.SelectedJob.JobId">Update</a></li>
+        <li><a style="color:#ab2020;" href="/Job/DeleteConfirm/@Model.SelectedJob.JobId">Delete</a></li>
     </ul>
 </nav>
 
 <h2>
-    @Model.JobTitle
+    @Model.SelectedJob.JobTitle
 </h2>
 
 
-<div>Department: @Model.DepartmentName</div>
-<div>JobType: @Model.Jobtype </div>
+<div>Department: @Model.SelectedJob.DepartmentName</div>
+<div>JobType: @Model.SelectedJob.Jobtype </div>
 
-<div>Description: @Model.Descriptions</div>
+<div>Description: @Model.SelectedJob.Descriptions</div>
 
 
+<div style="margin-top:100px;">
+    <h3>Applications related to this Jobs</h3>
+    @foreach(var application in Model.RelatedApplications)
+            {
+                <a href="/application/details/@application.ApplicationId">@application.Name</a>
+            }
+</div>

@@ -18,6 +18,7 @@ namespace Group1hospitalproject.Controllers
 
         // GET: api/ApplicationsData/ListApplications
         [HttpGet]
+
         public IEnumerable<ApplicationDto> ListApplications()
         {
             List<Application> Applications = db.Applications.ToList();
@@ -34,9 +35,35 @@ namespace Group1hospitalproject.Controllers
             }));
             return ApplicationDtos;
         }
-        
-        
-  
+
+        /// <summary>
+        /// Gather information about all applications related to a particular jobs id
+        /// </summary>
+        /// <returns></returns>
+        /// <param name="id">Jobs ID</param>
+        // GET: api/ApplicationsData/ListApplicationforJobs/2
+        [HttpGet]
+        [ResponseType(typeof(ApplicationDto))]
+        public IHttpActionResult ListApplicationforJobs(int id)
+        {
+            List<Application> Applications = db.Applications.Where(a => a.JobId == id).ToList();
+            List<ApplicationDto> ApplicationDtos = new List<ApplicationDto>();
+
+            Applications.ForEach(a => ApplicationDtos.Add(new ApplicationDto()
+            {
+                ApplicationId = a.ApplicationId,
+                Name = a.Name,
+                Phone = a.Phone,
+                Email = a.Email,
+                JobId = a.Job.JobId,
+                JobTitle = a.Job.JobTitle
+            }));
+            return Ok(ApplicationDtos);
+        }
+
+
+
+
         // GET: api/ApplicationsData/FindApplication/5
         [ResponseType(typeof(Application))]
         [HttpGet]

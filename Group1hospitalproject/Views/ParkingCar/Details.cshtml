@@ -4,14 +4,14 @@
     ViewBag.Title = "View";
 }
 
-
 <nav>
-    <ul>
-        <li><a href="/ParkingCar/List">Go back to list</a></li>
-        <li><a href="/ParkingCar/Edit/@Model.selectedParkingCar.ParkingCarID">Update</a></li>
-        <li><a style="color:#ab2020;" href="/ParkingCar/DeleteConfirm/@Model.selectedParkingCar.ParkingCarID">Delete</a></li>
+    <ul class="nav justify-content-end" style="display: flex; justify-content: end;">
+        <li class="nav-item "><a class="nav-link " href="/ParkingCar/List">Go back to list</a></li>
+        <li class="nav-item "><a class="nav-link " href="/ParkingCar/Edit/@Model.selectedParkingCar.ParkingCarID">Update</a></li>
+        <li class="nav-item "><a class="nav-link " style="color:#ab2020;" href="/ParkingCar/DeleteConfirm/@Model.selectedParkingCar.ParkingCarID">Delete</a></li>
     </ul>
 </nav>
+
 
 <h2>Licence Plate: @Model.selectedParkingCar.LicencePlate</h2>
 <div>Doctor Name: @Model.selectedParkingCar.DoctorName</div>

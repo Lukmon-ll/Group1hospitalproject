@@ -3,22 +3,32 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Show List</h2>
 <nav>
-    <ul>
-        <li><a href="/Application/List">Go back to list</a></li>
-        <li><a href="/Application/Edit/@Model.ApplicationId">Update</a></li>
-        <li><a style="color:#ab2020;" href="/Application/DeleteConfirm/@Model.ApplicationId">Delete</a></li>
+    <ul class="nav justify-content-end" style="display: flex; justify-content: end;">
+        <li class="nav-item "><a class="nav-link " href="/Application/List">Go back to list</a></li>
+        <li class="nav-item "><a class="nav-link " href="/Application/Edit/@Model.ApplicationId">Update</a></li>
+        <li class="nav-item "><a class="nav-link " style="color:#ab2020;" href="/Application/DeleteConfirm/@Model.ApplicationId">Delete</a></li>
     </ul>
 </nav>
-<h2>
-    @Model.Name
-</h2>
+
+<div>
+
+    <h2>
+        @Model.Name
+    </h2>
+    <dl class="row">
 
 
-<div>Phone: @Model.Phone</div>
-<div>Email: @Model.Email </div>
+        <dt class="col-lg-3">Applicant Name</dt>
+        <dd class="col-lg-9">@Model.Name</dd>
 
-<div>Applied for: @Model.JobTitle</div>
+        <dt class="col-sm-3">Phone</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
 
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Phone</dd>
 
+        <dt class="col-sm-3">Applied for</dt>
+        <dd class="col-sm-9">@Model.JobTitle</dd>
+    </dl>
+</div>

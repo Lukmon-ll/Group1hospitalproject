@@ -2,9 +2,19 @@
 @{
     ViewBag.Title = "Show";
 }
-<a href="/Doctor/List">Go back to the list</a>
-<a href="/Doctor/Edit/@Model.SelectedDoctor.DoctorID" class="btn">Update</a>
-<a href="/Doctor/DeleteConfirm/@Model.SelectedDoctor.DoctorID" class="btn">Delete</a>
+
+<nav>
+    <ul class="nav justify-content-end" style="display: flex; justify-content: end;">
+        <li class="nav-item "><a class="nav-link " href="/Doctor/List">Go back to the list</a>
+        <li class="nav-item "><a class="nav-link " href="/Doctor/Edit/@Model.SelectedDoctor.DoctorID" class="btn">Update</a>
+        <li class="nav-item "><a class="nav-link " style="color:#ab2020;" href="/Doctor/DeleteConfirm/@Model.SelectedDoctor.DoctorID" class="btn">Delete</a>
+    </ul>
+</nav>
+
+
+
+
+
 <h2>@Model.SelectedDoctor.DoctorName</h2>
 <div>@Model.SelectedDoctor.DoctorDescription</div>
 <div>@Model.SelectedDoctor.DoctorEmail</div>

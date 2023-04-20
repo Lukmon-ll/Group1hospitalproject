@@ -5,12 +5,26 @@
 }
 
 <h2>Application List</h2>
-<a href="/Application/New" class="btn">New Application</a>
-@foreach (var application in Model)
-{
-    <h2><a href="/Application/Details/@application.ApplicationId">@application.Name</a></h2>
-    <div>Email: @application.Email</div>
-    <div>JobId: @application.JobId</div>
-    <div>JobTitle: @application.JobTitle</div>
 
-}
+<div style="margin: 1em; text-align:right">
+    <a href="/Application/New" class="button">New Application</a>
+</div>
+
+
+
+<div class="list-group">
+    @foreach (var application in Model)
+    {
+        <a class="list-group-item list-group-item-action" href="/Application/Details/@application.ApplicationId">
+            <div class="d-flex w-100 justify-content-between">
+                <h3 class="mb-1">@application.Name</h3>
+
+            </div>
+            <p>Email: @application.Email</p>
+          
+                <small>Job: @application.JobId</small>
+                <small>Title: @application.JobTitle</small>
+         
+        </a>
+    }
+</div>

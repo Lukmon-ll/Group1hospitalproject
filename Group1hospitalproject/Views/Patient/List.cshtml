@@ -4,14 +4,24 @@
     ViewBag.Title = "List";
 }
 
+
+<div style="margin: 1em; text-align:right">
+    <a href="/Patient/New" class="button">Add New</a>
+</div>
+
 <h2>List</h2>
 @foreach (var patient in Model)
 {
-    <h2><a href="/Patient/Details/@patient.PatientID">@patient.FirstName @patient.LastName</a></h2>
-    
 
+    <a class="list-group-item list-group-item-action" href="/Patient/Details/@patient.PatientID">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">@patient.FirstName @patient.LastName</h3>
+
+        </div>
+  
+       
+    </a>
+
+ 
 
 }
-
-<a href="/Patient/New">Add New</a>
-

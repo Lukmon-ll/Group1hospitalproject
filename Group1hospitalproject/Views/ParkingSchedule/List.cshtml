@@ -2,9 +2,17 @@
 @{
     ViewBag.Title = "List";
 }
-<a href="/ParkingSchedule/New">Book A Parking Spot</a>
+
 <h2>Parking Bookings</h2>
-@foreach (var parkingschedule in Model)
-{
-    <h2>Booking Info (Click For Details): <a href="/ParkingSchedule/Details/@parkingschedule.ParkingScheduleID">@parkingschedule.ParkingScheduleID</a></h2>
-}
+
+<div style="margin: 1em; text-align:right">
+    <a href="/ParkingSchedule/New" class="button">Book A Parking Spot</a>
+</div>
+
+
+<div class="list-group">
+    @foreach (var parkingschedule in Model)
+    {
+<h2>Booking Info (Click For Details): <a href="/ParkingSchedule/Details/@parkingschedule.ParkingScheduleID">@parkingschedule.ParkingScheduleID</a></h2>
+    }
+</div>

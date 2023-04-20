@@ -5,11 +5,19 @@
 }
 
 <h2>Job List</h2>
-<a href="/Job/New" class="btn">New Job</a>
-@foreach (var job in Model)
-{
-    <h2><a href="/Job/Details/@job.JobId">@job.JobTitle</a></h2>
-    <div>Department: @job.DepartmentName</div>
-    <div>JobType: @job.Jobtype</div>
+<div style="margin: 1em; text-align:right">
+    <a href="/Job/New" class="button">New Job</a>
+</div>
+<div class="list-group">
+    @foreach (var job in Model)
+    {
+        <a class="list-group-item list-group-item-action" href="/Job/Details/@job.JobId">
+            <div class="d-flex w-100 justify-content-between">
+                <h3 class="mb-1">@job.JobTitle</h3>
 
-}
+            </div>
+            <p class="mb-1">Department: @job.DepartmentName</p>
+            <small>JobType: @job.Jobtype</small>
+        </a>
+            }
+        </div>

@@ -2,10 +2,20 @@
 @{
     ViewBag.Title = "List";
 }
-<a href="/ParkingCar/New">Add a Car</a>
+
+<div style="margin: 1em; text-align:right">
+    <a href="/ParkingCar/New" class="button">Add a Car</a>
+</div>
+
 <h2>Cars</h2>
 @foreach (var parkingcar in Model)
 {
-    <h2>Licence Plate: <a href="/ParkingCar/Details/@parkingcar.ParkingCarID">@parkingcar.LicencePlate</a></h2>
+    <a class="list-group-item list-group-item-action" href="/ParkingCar/Details/@parkingcar.ParkingCarID">
+   
+       <div class="d-flex w-100 justify-content-between">
+            <p>Licence Plate:</p>
+            <h3 class="mb-1"> @parkingcar.LicencePlate</h3>
+        </div>
+</a>
 }
 

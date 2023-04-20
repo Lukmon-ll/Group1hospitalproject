@@ -5,28 +5,42 @@
 
 <h2>Show List</h2>
 <nav>
-    <ul>
-        <li><a href="/Job/List">Go back to list</a></li>
-        <li><a href="/Job/Edit/@Model.SelectedJob.JobId">Update</a></li>
-        <li><a style="color:#ab2020;" href="/Job/DeleteConfirm/@Model.SelectedJob.JobId">Delete</a></li>
+    <ul class="nav justify-content-end" style="display: flex; justify-content: end;">
+        <li class="nav-item "><a class="nav-link " href="/Job/List">Go back to list</a></li>
+        <li class="nav-item "><a class="nav-link " href="/Job/Edit/@Model.SelectedJob.JobId">Update</a></li>
+        <li class="nav-item "><a class="nav-link " style="color:#ab2020;" href="/Job/DeleteConfirm/@Model.SelectedJob.JobId">Delete</a></li>
     </ul>
 </nav>
 
-<h2>
-    @Model.SelectedJob.JobTitle
-</h2>
+
+<div>
+
+    <h2>
+        @Model.SelectedJob.JobTitle
+    </h2>
+    <dl class="row">
 
 
-<div>Department: @Model.SelectedJob.DepartmentName</div>
-<div>JobType: @Model.SelectedJob.Jobtype </div>
+        <dt class="col-lg-3">Department</dt>
+        <dd class="col-lg-9">@Model.SelectedJob.DepartmentName</dd>
 
-<div>Description: @Model.SelectedJob.Descriptions</div>
+        <dt class="col-sm-3">JobType</dt>
+        <dd class="col-sm-9">@Model.SelectedJob.Jobtype</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">@Model.SelectedJob.Descriptions</dd>
+    </dl>
+</div>
+
+
+
 
 
 <div style="margin-top:100px;">
     <h3>Applications related to this Jobs</h3>
-    @foreach(var application in Model.RelatedApplications)
-            {
-                <a href="/application/details/@application.ApplicationId">@application.Name</a>
-            }
+    @foreach (var application in Model.RelatedApplications)
+    {
+        <a href="/application/details/@application.ApplicationId">@application.Name</a>
+    }
 </div>
+

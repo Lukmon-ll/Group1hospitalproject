@@ -17,7 +17,16 @@ namespace Group1hospitalproject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/JobData/ListJobs
+        /// <summary>
+        /// Returns all jobs in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all jobs in the database, including their associated Applications.
+        /// </returns>
+        /// <example>
+        /// GET: api/JobData/ListJobs
+        /// </example>
         [HttpGet]
         public IEnumerable<JobDto> ListJobs()
         {

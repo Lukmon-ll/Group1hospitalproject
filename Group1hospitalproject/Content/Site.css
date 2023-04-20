@@ -48,16 +48,25 @@ li a {
 }
 
 li ul {
-    display: none;
+    left:-10000px;
     position: absolute;
     background: #e0e0e0;
     width: 212px;
 }
 li:hover ul {
-    display:block;
+    left:0;
     width: 180px;
+    animation: drop 400ms;
+    transform-origin: top center; 
 }
-
+@keyframes drop {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
 li ul li{
     float: none;
 }

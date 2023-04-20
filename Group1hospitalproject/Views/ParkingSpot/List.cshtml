@@ -9,8 +9,21 @@
 </div>
 
 
+
+@*<div class="list-group-item list-group-item-action">
+    @foreach (var parkingspot in Model)
+    {
+        <h2>Spot Number: <a href="/ParkingSpot/Details/@parkingspot.ParkingSpotID">@parkingspot.SpotNumber</a></h2>
+    }
+</div>*@
+
 @foreach (var parkingspot in Model)
 {
-    <h2>Spot Number: <a href="/ParkingSpot/Details/@parkingspot.ParkingSpotID">@parkingspot.SpotNumber</a></h2>
-}
+    <a class="list-group-item list-group-item-action"  href="/ParkingSpot/Details/@parkingspot.ParkingSpotID">
 
+        <div class="d-flex w-100 justify-content-between">
+            <p>Licence Plate:</p>
+            <h3 class="mb-1">@parkingspot.SpotNumber</h3>
+        </div>
+    </a>
+}

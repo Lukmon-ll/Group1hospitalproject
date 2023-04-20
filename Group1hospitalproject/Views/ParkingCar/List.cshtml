@@ -3,11 +3,13 @@
     ViewBag.Title = "List";
 }
 
+<h2>Cars</h2>
+
 <div style="margin: 1em; text-align:right">
     <a href="/ParkingCar/New" class="button">Add a Car</a>
 </div>
 
-<h2>Cars</h2>
+
 @foreach (var parkingcar in Model)
 {
     <a class="list-group-item list-group-item-action" href="/ParkingCar/Details/@parkingcar.ParkingCarID">

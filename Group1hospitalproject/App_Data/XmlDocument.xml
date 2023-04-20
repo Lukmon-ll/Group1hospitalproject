@@ -481,12 +481,88 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:Group1hospitalproject.Controllers.ApplicationsDataController.ListApplications">
+            <summary>
+            Returns all Applications in the system.
+            </summary>
+            <returns>
+            HEADER: 200 (OK)
+            CONTENT: all Applications in the database, including their associated jobs.
+            </returns>
+            <example>
+            GET: api/ApplicationsData/ListApplications
+            </example>
+        </member>
         <member name="M:Group1hospitalproject.Controllers.ApplicationsDataController.ListApplicationforJobs(System.Int32)">
             <summary>
             Gather information about all applications related to a particular jobs id
             </summary>
             <returns></returns>
             <param name="id">Jobs ID</param>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.ApplicationsDataController.FindApplication(System.Int32)">
+            <summary>
+            Returns all Applications in the system.
+            </summary>
+            <returns>
+            HEADER: 200 (OK)
+            CONTENT: An Applications in the system matching up to the Application ID primary key
+            or
+            HEADER: 404 (NOT FOUND)
+            </returns>
+            <param name="id">The primary key of the Application</param>
+            <example>
+            GET: api/ApplicationsData/ApplicationsData/5
+            </example>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.ApplicationsDataController.UpdateApplication(System.Int32,Group1hospitalproject.Models.Application)">
+            <summary>
+            Updates a particular Application in the system with POST Data input
+            </summary>
+            <param name="id">Represents the Application ID primary key</param>
+            <param name="application">JSON FORM DATA of an Application</param>
+            <returns>
+            HEADER: 204 (Success, No Content Response)
+            or
+            HEADER: 400 (Bad Request)
+            or
+            HEADER: 404 (Not Found)
+            </returns>
+            <example>
+            POST: api/ApplicationsData/UpdateApplication/5
+            FORM DATA: Application JSON Object
+            </example>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.ApplicationsDataController.AddApplication(Group1hospitalproject.Models.Application)">
+            <summary>
+            Adds an application to the system
+            </summary>
+            <param name="application">JSON FORM DATA of an application</param>
+            <returns>
+            HEADER: 201 (Created)
+            CONTENT: application ID, application Data
+            or
+            HEADER: 400 (Bad Request)
+            </returns>
+            <example>
+            POST: api/ApplicationsData/AddApplication
+            FORM DATA: application JSON Object
+            </example>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.ApplicationsDataController.DeleteApplication(System.Int32)">
+            <summary>
+            Deletes an Application from the system by it's ID.
+            </summary>
+            <param name="id">The primary key of the Application</param>
+            <returns>
+            HEADER: 200 (OK)
+            or
+            HEADER: 404 (NOT FOUND)
+            </returns>
+            <example>
+            POST: api/ApplicationsData/DeleteApplication/5
+            FORM DATA: (empty)
+            </example>
         </member>
         <member name="M:Group1hospitalproject.Controllers.DoctorDataController.FindDoctor(System.Int32)">
             <summary>
@@ -505,6 +581,70 @@
             </returns>
             <example>
             GET: api/JobData/ListJobs
+            </example>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.JobDataController.FindJob(System.Int32)">
+            <summary>
+            Returns all jobs in the system.
+            </summary>
+            <returns>
+            HEADER: 200 (OK)
+            CONTENT: A job in the system matching up to the job ID primary key
+            or
+            HEADER: 404 (NOT FOUND)
+            </returns>
+            <param name="id">The primary key of the jobs</param>
+            <example>
+            GET: api/JobData/FindJob/5
+            </example>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.JobDataController.UpdateJob(System.Int32,Group1hospitalproject.Models.Job)">
+            <summary>
+            Updates a particular Jobs in the system with POST Data input
+            </summary>
+            <param name="id">Represents the Species ID primary key</param>
+            <param name="job">JSON FORM DATA of an Job</param>
+            <returns>
+            HEADER: 204 (Success, No Content Response)
+            or
+            HEADER: 400 (Bad Request)
+            or
+            HEADER: 404 (Not Found)
+            </returns>
+            <example>
+            POST: api/JobData/Update/5
+            FORM DATA: jobs JSON Object
+            </example>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.JobDataController.AddJob(Group1hospitalproject.Models.Job)">
+            <summary>
+            Adds an Job to the system
+            </summary>
+            <param name="job">JSON FORM DATA of a Job</param>
+            <returns>
+            HEADER: 201 (Created)
+            CONTENT: Job ID, Job Data
+            or
+            HEADER: 400 (Bad Request)
+            </returns>
+            <example>
+            POST: api/JobData/AddJob
+            FORM DATA: Species JSON Object
+            </example>
+        </member>
+        <member name="M:Group1hospitalproject.Controllers.JobDataController.DeleteJob(System.Int32)">
+            <summary>
+            Deletes a Job from the system by it's ID.
+            </summary>
+            <param name="id">The primary key of the Job</param>
+            <returns>
+            HEADER: 200 (OK)
+            or
+            HEADER: 404 (NOT FOUND)
+            </returns>
+            <example>
+            POST: api/JobData/DeleteJob/5
+            FORM DATA: (empty)
             </example>
         </member>
         <member name="M:Group1hospitalproject.Controllers.ParkingCarController.Details(System.Int32)">

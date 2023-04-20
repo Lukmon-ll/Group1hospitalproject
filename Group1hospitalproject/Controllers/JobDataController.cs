@@ -44,7 +44,20 @@ namespace Group1hospitalproject.Controllers
                return JobDtos;
         }
 
-        // GET: api/JobData/FindJob/5
+        /// <summary>
+        /// Returns all jobs in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: A job in the system matching up to the job ID primary key
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <param name="id">The primary key of the jobs</param>
+        /// <example>
+        /// GET: api/JobData/FindJob/5
+        /// </example>
+
         [ResponseType(typeof(Job))]
         [HttpGet]
         public IHttpActionResult FindJob(int id)
@@ -65,8 +78,22 @@ namespace Group1hospitalproject.Controllers
 
             return Ok(JobDto);
         }
-
-        // POST: api/JobData/Update/5
+        /// <summary>
+        /// Updates a particular Jobs in the system with POST Data input
+        /// </summary>
+        /// <param name="id">Represents the Species ID primary key</param>
+        /// <param name="job">JSON FORM DATA of an Job</param>
+        /// <returns>
+        /// HEADER: 204 (Success, No Content Response)
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// or
+        /// HEADER: 404 (Not Found)
+        /// </returns>
+        /// <example>
+        /// POST: api/JobData/Update/5
+        /// FORM DATA: jobs JSON Object
+        /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateJob(int id, Job job)
@@ -102,6 +129,21 @@ namespace Group1hospitalproject.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Adds an Job to the system
+        /// </summary>
+        /// <param name="job">JSON FORM DATA of a Job</param>
+        /// <returns>
+        /// HEADER: 201 (Created)
+        /// CONTENT: Job ID, Job Data
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// </returns>
+        /// <example>
+        /// POST: api/JobData/AddJob
+        /// FORM DATA: Species JSON Object
+        /// </example>
+
         // POST: api/JobData/AddJob
         [ResponseType(typeof(Job))]
         [HttpPost]
@@ -118,9 +160,23 @@ namespace Group1hospitalproject.Controllers
             return CreatedAtRoute("DefaultApi", new { id = job.JobId }, job);
         }
 
-        // POST: api/JobData/DeleteJob/5
+        /// <summary>
+        /// Deletes a Job from the system by it's ID.
+        /// </summary>
+        /// <param name="id">The primary key of the Job</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <example>
+        /// POST: api/JobData/DeleteJob/5
+        /// FORM DATA: (empty)
+        /// </example>
+
         [ResponseType(typeof(Job))]
         [HttpPost]
+        [Authorize]
         public IHttpActionResult DeleteJob(int id)
         {
             Job job = db.Jobs.Find(id);

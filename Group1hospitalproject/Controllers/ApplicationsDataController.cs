@@ -16,7 +16,17 @@ namespace Group1hospitalproject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/ApplicationsData/ListApplications
+        /// <summary>
+        /// Returns all Applications in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all Applications in the database, including their associated jobs.
+        /// </returns>
+        /// <example>
+        /// GET: api/ApplicationsData/ListApplications
+        /// </example>
+
         [HttpGet]
 
         public IEnumerable<ApplicationDto> ListApplications()
@@ -61,10 +71,20 @@ namespace Group1hospitalproject.Controllers
             return Ok(ApplicationDtos);
         }
 
+        /// <summary>
+        /// Returns all Applications in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: An Applications in the system matching up to the Application ID primary key
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <param name="id">The primary key of the Application</param>
+        /// <example>
+        /// GET: api/ApplicationsData/ApplicationsData/5
+        /// </example>
 
-
-
-        // GET: api/ApplicationsData/FindApplication/5
         [ResponseType(typeof(Application))]
         [HttpGet]
         public IHttpActionResult FindApplication(int id)
@@ -87,6 +107,23 @@ namespace Group1hospitalproject.Controllers
             return Ok(ApplicationDto);
         }
 
+
+        /// <summary>
+        /// Updates a particular Application in the system with POST Data input
+        /// </summary>
+        /// <param name="id">Represents the Application ID primary key</param>
+        /// <param name="application">JSON FORM DATA of an Application</param>
+        /// <returns>
+        /// HEADER: 204 (Success, No Content Response)
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// or
+        /// HEADER: 404 (Not Found)
+        /// </returns>
+        /// <example>
+        /// POST: api/ApplicationsData/UpdateApplication/5
+        /// FORM DATA: Application JSON Object
+        /// </example>
 
         // POST: api/ApplicationsData/UpdateApplication/5
         [ResponseType(typeof(void))]
@@ -123,7 +160,20 @@ namespace Group1hospitalproject.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// Adds an application to the system
+        /// </summary>
+        /// <param name="application">JSON FORM DATA of an application</param>
+        /// <returns>
+        /// HEADER: 201 (Created)
+        /// CONTENT: application ID, application Data
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// </returns>
+        /// <example>
+        /// POST: api/ApplicationsData/AddApplication
+        /// FORM DATA: application JSON Object
+        /// </example>
         // POST: api/ApplicationsData/AddApplication
         [ResponseType(typeof(Application))]
         [HttpPost]
@@ -139,8 +189,19 @@ namespace Group1hospitalproject.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = application.ApplicationId }, application);
         }
-
-        // POST: api/ApplicationsData/DeleteApplication/5
+        /// <summary>
+        /// Deletes an Application from the system by it's ID.
+        /// </summary>
+        /// <param name="id">The primary key of the Application</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <example>
+        /// POST: api/ApplicationsData/DeleteApplication/5
+        /// FORM DATA: (empty)
+        /// </example>
         [ResponseType(typeof(Application))]
         [HttpPost]
         public IHttpActionResult DeleteApplication(int id)

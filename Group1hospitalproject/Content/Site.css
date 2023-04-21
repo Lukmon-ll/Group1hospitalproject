@@ -122,9 +122,25 @@ a {
 
 
 .jumbotron-1 {
+    margin:0 auto;
     height: 600px;
-    width: auto;
-    background-image: url('https://www.multivu.com/players/English/8479152-geneia-hospital-success-white-paper/image/GeneiaHero_1557759181561-HR.jpg');
+    width: 900px;
+    animation: change 7s infinite;
+}
+
+@keyframes change {
+    0% {
+        background-image: url('https://www.boardvitals.com/blog/wp-content/uploads/2016/03/HandSandwich-1024x683.jpg');
+    }
+    33% {
+        background-image: url('https://st.depositphotos.com/1907633/2380/i/950/depositphotos_23805509-stock-photo-medicine-doctor-hands-working-with.jpg');
+    }
+    66% {
+        background-image: url('https://cdn.create.vista.com/api/media/medium/414215972/stock-photo-selective-focus-doctors-looking-nurse?token=')
+    }
+    100% {
+        background-image: url('https://www.boardvitals.com/blog/wp-content/uploads/2016/03/HandSandwich-1024x683.jpg');
+    }
 }
 
 .col-md-4 img {

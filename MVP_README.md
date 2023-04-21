@@ -42,7 +42,7 @@ below CRUD functions are built for following entities :
 - Pagination for parking schedule
 
 ### Contributing
-- Ka Wing Chan - Doctors - doctors/department, CSS.
+- Ka Wing Chan - Doctors - doctors/department, CSS for nav menu animation, homepage design, showing doctors in department.
 - Andrew Barker - Parking - parkingSchedule/cars/spots, car/booking relational list. Nav dropdown menu and links.
 - Gahee Choi - Career - jobs/applications, CSS styling, API document
 - Lukmon Lasisi - Appointments - patient/appointment
